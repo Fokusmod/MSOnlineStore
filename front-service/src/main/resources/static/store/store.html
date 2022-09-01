@@ -1,0 +1,54 @@
+<div>
+    <p></p>
+    <h1>Каталог</h1>
+    <p></p>
+    <table class="table">
+        <thead>
+        <tr>
+            <td>ID</td>
+            <td>Title</td>
+            <td>Price</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="p in productData.content">
+            <td>{{p.id}}</td>
+            <td>{{p.title}}</td>
+            <td>{{p.price}}</td>
+            <td>
+                <button ng-click="navToEditProductPage(p.id)" ng-show="isUserLoggedIn()" class="btn btn-primary" type=button>Изменить</button>
+            </td>
+            <td>
+                <button ng-click="deleteProduct(p.id)" ng-show="isUserLoggedIn()" class="btn btn-primary" type=button>Удалить</button>
+            </td>
+            <td>
+                <button ng-click="addToCart(p.id)" ng-show="isUserLoggedIn()" class="btn btn-primary" type=button>В корзину</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+
+            <li class="page-item">
+                <a class="page-link" aria-label="Previous" ng-click="loadPrevious()">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+
+            <li class="page-item" ng-repeat="p in pagesArray">
+                <button class="page-link" ng-click="loadProducts(p)">{{p}}</button>
+            </li>
+
+            <li class="page-item">
+                <a class="page-link" aria-label="Next" ng-click="loadNext()">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>
