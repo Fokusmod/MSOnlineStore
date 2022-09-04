@@ -1,0 +1,123 @@
+openapi: 3.0.0
+info:
+  title: Swagger Online Market - OpenAPI 3.0
+  description: -This is a sample Online Store Server based on the OpenAPI 3.0 specification.
+  contact:
+    email: Gang32rus@mail.ru
+  version: 1.0.0
+tags:
+  - name: products
+    description: Everything about your products
+  - name: category
+    description: Everything about your categories
+servers:
+  - url: http://localhost:8200/api/v1
+paths:
+  /category:
+    get:
+      tags:
+        - category
+      summary: gettingAllCategories
+      operationId: findAllCategories
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CategoryList'
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+  /products:
+    get:
+      tags:
+        - products
+      summary: getting All Products
+      operationId: findAllProducts
+      parameters:
+        - name: page
+          in: query
+          description: page number
+          required: false
+          schema:
+            type: integer
+            format: int32
+            default: 1
+        - name: pageSize
+          in: query
+          description: Products in one page
+          required: false
+          schema:
+            type: integer
+            format: int32
+            default: 20
+      responses:
+        '200':
+          description: A paged array of orders
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProductList"
+        default:
+          description: unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Error"
+
+
+
+
+
+
+components:
+  schemas:
+    ProductList:
+      type: array
+      items:
+        $ref: '#/components/schemas/Product'
+    Product:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 10
+        title:
+          type: string
+          example: product
+        price:
+          type: integer
+          format: int32
+          example: 7
+        categoryTitle:
+          $ref: '#/components/schemas/Category'
+    Category:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 1
+        name:
+          type: string
+          example: bear
+    CategoryList:
+      type: array
+      items:
+        $ref: '#/components/schemas/Category'
+    Error:
+      type: object
+      required:
+        - code
+        - message
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
