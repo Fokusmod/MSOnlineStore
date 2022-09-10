@@ -1,7 +1,6 @@
 package com.geekbrains.coreservice.controller;
 
-import com.geekbrains.apiservice.CategoryDto;
-import com.geekbrains.coreservice.converter.CategoryConverter;
+import com.geekbrains.coreservice.Dto.CategoryDto;
 import com.geekbrains.coreservice.service.CategoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,10 +17,9 @@ public class CategoryController {
 
     private final CategoryService categoryService;
 
-    private final CategoryConverter categoryConverter;
 
     @GetMapping("/category")
     public List<CategoryDto> findAll (){
-       return categoryService.findAll().stream().map(categoryConverter::entityToDto).collect(Collectors.toList());
+        return categoryService.findAll().stream().map(CategoryDto::new).collect(Collectors.toList());
     }
 }

@@ -1,11 +1,9 @@
 package com.geekbrains.coreservice.controller;
 
-import com.geekbrains.apiservice.ProductDto;
-import com.geekbrains.coreservice.converter.ProductConverter;
+import com.geekbrains.coreservice.Dto.ProductDto;
 import com.geekbrains.coreservice.exception.DataValidationException;
 import com.geekbrains.coreservice.exception.ResourceNotFoundException;
 import com.geekbrains.coreservice.model.Product;
-import com.geekbrains.coreservice.service.CategoryService;
 import com.geekbrains.coreservice.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -15,12 +13,8 @@ import org.springframework.validation.ObjectError;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-
 import java.util.List;
 import java.util.stream.Collectors;
-
-
-
 
 @RestController
 @RequestMapping(value = "/api/v1")
@@ -28,21 +22,20 @@ import java.util.stream.Collectors;
 public class ProductController {
 
     private final ProductService productService;
-    private final ProductConverter productConverter;
 
 
     @GetMapping("/products")
     @ResponseStatus(HttpStatus.OK)
     public Page<ProductDto> findAll(@RequestParam(name = "i", defaultValue = "1") int pageIndex) {
-        return productService.findCatalog(pageIndex - 1, 10).map(productConverter::entityToDto);
+        return productService.findCatalog(pageIndex - 1, 10).map(ProductDto::new);
     }
 
     @GetMapping("/products/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public ProductDto findById (@PathVariable Long id){
+    public ProductDto findById(@PathVariable Long id) {
         Product product = productService.findById(id)
-                .orElseThrow(()->new ResourceNotFoundException("Product not found"));
-        return productConverter.entityToDto(product);
+                .orElseThrow(() -> new ResourceNotFoundException("Product not found"));
+        return new ProductDto(product);
     }
 
     @PostMapping("/products")
@@ -68,7 +61,7 @@ public class ProductController {
                     .map(ObjectError::getDefaultMessage)
                     .collect(Collectors.toList()));
         }
-       productService.updateProductFromDto(change_product);
+        productService.updateProductFromDto(change_product);
 
     }
 
@@ -81,16 +74,8 @@ public class ProductController {
     @GetMapping("products/all")
     @ResponseStatus(HttpStatus.OK)
     public List<ProductDto> findAll() {
-        List<ProductDto> collect = productService.findAll().stream().map(productConverter::entityToDto).collect(Collectors.toList());
+        List<ProductDto> collect = productService.findAll().stream().map(ProductDto::new).collect(Collectors.toList());
         return collect;
     }
 }
-
-
-
-
-
-
-
-
 

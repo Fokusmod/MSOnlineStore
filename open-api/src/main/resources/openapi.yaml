@@ -1,0 +1,137 @@
+openapi: 3.0.0
+info:
+  contact:
+    email: Gang32rus@mail.ru
+  description: -This is a sample Online Store Server based on the OpenAPI 3.0 specification.
+  title: Swagger Online Market - OpenAPI 3.0
+  version: 1.0.0
+servers:
+- url: http://localhost:8200/api/v1
+tags:
+- description: Everything about your products
+  name: products
+- description: Everything about your categories
+  name: category
+paths:
+  /category:
+    get:
+      operationId: findAllCategories
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CategoryList'
+          description: OK
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: unexpected error
+      summary: gettingAllCategories
+      tags:
+      - category
+      x-accepts: application/json
+      x-tags:
+      - tag: category
+  /products:
+    get:
+      operationId: findAllProducts
+      parameters:
+      - description: page number
+        explode: true
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          format: int32
+          type: integer
+        style: form
+      - description: Products in one page
+        explode: true
+        in: query
+        name: pageSize
+        required: false
+        schema:
+          default: 20
+          format: int32
+          type: integer
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductList'
+          description: A paged array of orders
+        default:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+          description: unexpected error
+      summary: getting All Products
+      tags:
+      - products
+      x-accepts: application/json
+      x-tags:
+      - tag: products
+components:
+  schemas:
+    ProductList:
+      items:
+        $ref: '#/components/schemas/Product'
+      type: array
+    Product:
+      example:
+        price: 7
+        categoryTitle:
+          name: bear
+          id: 1
+        id: 10
+        title: product
+      properties:
+        id:
+          example: 10
+          format: int64
+          type: integer
+        title:
+          example: product
+          type: string
+        price:
+          example: 7
+          format: int32
+          type: integer
+        categoryTitle:
+          $ref: '#/components/schemas/Category'
+      type: object
+    Category:
+      example:
+        name: bear
+        id: 1
+      properties:
+        id:
+          example: 1
+          format: int64
+          type: integer
+        name:
+          example: bear
+          type: string
+      type: object
+    CategoryList:
+      items:
+        $ref: '#/components/schemas/Category'
+      type: array
+    Error:
+      properties:
+        code:
+          format: int32
+          type: integer
+        message:
+          type: string
+      required:
+      - code
+      - message
+      type: object

@@ -1,7 +1,7 @@
 package com.geekbrains.coreservice.service;
 
 
-import com.geekbrains.apiservice.ProductDto;
+import com.geekbrains.coreservice.Dto.ProductDto;
 import com.geekbrains.coreservice.exception.ResourceNotFoundException;
 import com.geekbrains.coreservice.model.Category;
 import com.geekbrains.coreservice.model.Product;

@@ -19,7 +19,7 @@
     <dependencies>
         <dependency>
             <groupId>com.geekbrains.MsOnlineStore</groupId>
-            <artifactId>api-service</artifactId>
+            <artifactId>service-api</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
