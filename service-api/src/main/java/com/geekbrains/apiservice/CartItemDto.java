@@ -1,12 +1,17 @@
-package com.geekbrains.cartservice.model;
+package com.geekbrains.apiservice;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+
 @Data
 @Builder
-public class CartItem implements Serializable {
+@NoArgsConstructor
+@AllArgsConstructor
+public class CartItemDto implements Serializable {
 
     private Long id;
 
@@ -17,4 +22,5 @@ public class CartItem implements Serializable {
     private int price;
 
     private int sum;
+
 }
