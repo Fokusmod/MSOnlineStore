@@ -10,6 +10,7 @@ import com.geekbrains.callservice.exception.MarketError;
 import com.geekbrains.callservice.repository.CallRequestRepository;
 import com.geekbrains.callservice.repository.CartItemRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
@@ -17,7 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
-
+@Slf4j
 @Service
 @RequiredArgsConstructor
 @Transactional
@@ -28,8 +29,8 @@ public class CallRequestService {
 
 
     @KafkaListener(topics = "getCart", groupId = "call_request")
-    public void listenGroupFoo(CartDto cartDto) {
-        System.out.println("Received Message in group foo: " + cartDto);
+    public void getTopicFromCartService(CartDto cartDto) {
+        log.debug("Received message from getCart");
         saveRequest(cartDto);
     }
 

@@ -24,7 +24,7 @@ public class KafkaTopicConfig {
     }
 
     @Bean
-    public NewTopic topic1() {
+    public NewTopic TopicToCallService() {
         return new NewTopic("getCart", 1, (short) 1);
     }
 }
