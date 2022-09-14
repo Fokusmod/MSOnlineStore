@@ -1,6 +1,7 @@
 package com.geekbrains.coreservice.service;
 
 
+import com.geekbrains.apiservice.annotation.ExecutionTime;
 import com.geekbrains.coreservice.Dto.ProductDto;
 import com.geekbrains.coreservice.exception.ResourceNotFoundException;
 import com.geekbrains.coreservice.model.Category;
@@ -22,24 +23,24 @@ public class ProductService {
 
     private final ProductRepository repository;
     private final CategoryService categoryService;
-
+    @ExecutionTime
     public List<Product> findAll() {
         return repository.findAll();
     }
-
+    @ExecutionTime
     public Page<Product> findCatalog(int pageIndex, int pageSize) {
         return repository.findAll(PageRequest.of(pageIndex, pageSize, Sort.by("id")));
     }
-
+    @ExecutionTime
     public Optional<Product> findByTitle(String title) {
         return repository.findByTitle(title);
     }
 
-
+    @ExecutionTime
     public Optional<Product> findById(Long id) {
         return repository.findById(id);
     }
-
+    @ExecutionTime
     @Transactional
     public void saveProductFromDto(ProductDto productDto) {
         Product product = new Product();
@@ -51,7 +52,7 @@ public class ProductService {
         product.setCategory(category);
         repository.save(product);
     }
-
+    @ExecutionTime
     public void delete(Long id) {
         repository.deleteById(id);
     }
@@ -67,7 +68,7 @@ public class ProductService {
     public List<Product> betweenPrice(int min, int max) {
         return repository.findByPriceBetween(min, max);
     }
-
+    @ExecutionTime
     @Transactional
     public void updateProductFromDto(ProductDto change_product) {
         Product product = findById(change_product.getId())

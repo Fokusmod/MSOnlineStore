@@ -3,6 +3,7 @@ package com.geekbrains.callservice.service;
 import com.geekbrains.apiservice.CallRequestDto;
 import com.geekbrains.apiservice.CartDto;
 import com.geekbrains.apiservice.CartItemDto;
+import com.geekbrains.apiservice.annotation.ExecutionTime;
 import com.geekbrains.callservice.entity.CallRequest;
 import com.geekbrains.callservice.entity.CartItem;
 import com.geekbrains.callservice.exception.CallRequestException;
@@ -27,13 +28,13 @@ public class CallRequestService {
     private final CallRequestRepository callRequestRepository;
     private final CartItemRepository cartItemRepository;
 
-
+    @ExecutionTime
     @KafkaListener(topics = "getCart", groupId = "call_request")
     public void getTopicFromCartService(CartDto cartDto) {
         log.debug("Received message from getCart");
         saveRequest(cartDto);
     }
-
+    @ExecutionTime
     private void saveRequest(CartDto cartDto) {
         CallRequest callRequest = new CallRequest();
         callRequest.setUserId(cartDto.getUserId());
@@ -58,7 +59,7 @@ public class CallRequestService {
             cartItemRepository.save(item);
         }
     }
-
+    @ExecutionTime
     public List<CallRequestDto> getAllRequest() {
         return callRequestRepository.findAll().stream()
                 .map(callRequest ->
@@ -76,7 +77,7 @@ public class CallRequestService {
                                 .collect(Collectors.toList())))
                 .collect(Collectors.toList());
     }
-
+    @ExecutionTime
     public CallRequestDto getById(Long id) {
         return callRequestRepository.findByUserId(id)
                 .stream()
@@ -94,7 +95,7 @@ public class CallRequestService {
                         .collect(Collectors.toList()))).findFirst()
                 .orElseThrow(() -> new CallRequestException(List.of("Call request not found")));
     }
-
+    @ExecutionTime
     public void deleteRequest(Long id) {
         CallRequest callRequest = callRequestRepository.findByUserId(id)
                 .orElseThrow(() -> new CallRequestException(List.of("Call request not found")));
