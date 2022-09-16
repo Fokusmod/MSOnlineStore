@@ -1,5 +1,6 @@
 package com.geekbrains.coreservice.service;
 
+import com.geekbrains.apiservice.annotation.ExecutionTime;
 import com.geekbrains.coreservice.model.Category;
 import com.geekbrains.coreservice.repository.CategoryRepository;
 import lombok.RequiredArgsConstructor;
@@ -13,11 +14,11 @@ import java.util.Optional;
 public class CategoryService {
 
     private final CategoryRepository categoryRepository;
-
+    @ExecutionTime
     public List<Category> findAll() {
        return categoryRepository.findAll();
     }
-
+    @ExecutionTime
     public Optional<Category> findByTitle (String title) {
         return categoryRepository.findByTitle(title);
     }

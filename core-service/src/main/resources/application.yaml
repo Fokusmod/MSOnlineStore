@@ -16,5 +16,9 @@ spring:
   liquibase:
     change-log: "classpath:db/changelog/changelog-master.xml"
 
+gateway:
+  path: "http://localhost:8180/core/"
+
+directory: "${user.dir}\\Files\\"
 
 

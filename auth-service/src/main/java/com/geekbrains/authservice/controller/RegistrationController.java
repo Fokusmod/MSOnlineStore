@@ -1,6 +1,7 @@
 package com.geekbrains.authservice.controller;
 
 import com.geekbrains.apiservice.RegistrationRequest;
+import com.geekbrains.apiservice.annotation.ExecutionTime;
 import com.geekbrains.authservice.exception.MarketError;
 import com.geekbrains.authservice.repository.UserRepository;
 import com.geekbrains.authservice.service.RegistrationService;

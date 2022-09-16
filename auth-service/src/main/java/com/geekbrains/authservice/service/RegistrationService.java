@@ -1,6 +1,7 @@
 package com.geekbrains.authservice.service;
 
 import com.geekbrains.apiservice.RegistrationRequest;
+import com.geekbrains.apiservice.annotation.ExecutionTime;
 import com.geekbrains.authservice.model.Role;
 import com.geekbrains.authservice.model.User;
 import com.geekbrains.authservice.repository.RoleRepository;
@@ -23,7 +24,7 @@ public class RegistrationService {
     private final RoleRepository roleRepository;
     private final BCryptPasswordEncoder passwordEncoder;
 
-
+    @ExecutionTime
     public void save(RegistrationRequest registrationRequest) {
         System.out.println(registrationRequest);
         User user = new User();

@@ -5,7 +5,9 @@ import com.geekbrains.apiservice.CallRequestDto;
 import com.geekbrains.apiservice.CartItemDto;
 import com.geekbrains.callservice.CallServiceApplication;
 import com.geekbrains.callservice.entity.CallRequest;
+import com.geekbrains.callservice.entity.Statistic;
 import com.geekbrains.callservice.service.CallRequestService;
+import com.geekbrains.callservice.service.CallStatisticService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,6 +20,8 @@ import java.util.stream.Collectors;
 public class CallRequestController {
 
     private final CallRequestService callRequestService;
+
+    private final CallStatisticService callStatisticService;
 
 
     @GetMapping()
@@ -36,6 +40,5 @@ public class CallRequestController {
     public void deleteRequest(@PathVariable Long id) {
         callRequestService.deleteRequest(id);
     }
-
 
 }
