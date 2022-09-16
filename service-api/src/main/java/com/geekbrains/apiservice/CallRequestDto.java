@@ -5,13 +5,16 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.List;
+
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-public class CartDto {
+@AllArgsConstructor
+public class CallRequestDto {
+
+    private Long id;
 
     private Long userId;
 
-    private List<CartItemDto> items;
+    private List<CartItemDto> cartItemDtoList;
 
 }

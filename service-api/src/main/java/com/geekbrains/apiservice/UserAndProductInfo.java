@@ -4,14 +4,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-public class CartDto {
+@AllArgsConstructor
+public class UserAndProductInfo {
 
-    private Long userId;
+    private String username;
+    private Long productId;
 
-    private List<CartItemDto> items;
+
 
 }
