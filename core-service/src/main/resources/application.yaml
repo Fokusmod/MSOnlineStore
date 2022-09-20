@@ -2,10 +2,12 @@ server:
   port: 8181
   servlet:
     context-path: /market-core
-#spring:
-#  application:
-#    name: /market-core
 spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: "http://localhost:9000"
   jpa:
     show-sql: true
   datasource:

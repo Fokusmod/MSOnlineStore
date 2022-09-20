@@ -14,9 +14,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 
-//-Протестировать задержку
-//-Реализовать хранение ссылок в бд
-//-FileService рефакторинг
 
 @RestController
 @RequiredArgsConstructor
