@@ -15,65 +15,65 @@ import reactor.core.publisher.Mono;
 
 
 
-@Component
-public class JwtAuthFilter extends AbstractGatewayFilterFactory<JwtAuthFilter.Config> {
-
-    @Autowired
-    private JwtUtils jwtUtils;
-
-
-    public JwtAuthFilter() {
-        super(Config.class);
-    }
-
-    @Override
-    public GatewayFilter apply(Config config) {
-        return (exchange, chain) -> {
-            ServerHttpRequest request = exchange.getRequest();
-
-            if (request.getHeaders().containsKey("username")) {
-                return this.onError(exchange, "Invalid header username", HttpStatus.BAD_REQUEST);
-            }
-
-            if (!isAuthMissing(request)) {
-                final String token = getAuthHeader(request);
-                if (jwtUtils.isInvalid(token)) {
-                    return this.onError(exchange, "Authorization header is invalid", HttpStatus.UNAUTHORIZED);
-                }
-                populateRequestWithHeaders(exchange, token);
-            }
-            return chain.filter(exchange);
-        };
-    }
-
-    private Mono<Void> onError(ServerWebExchange exchange, String err, HttpStatus httpStatus) {
-        ServerHttpResponse response = exchange.getResponse();
-        response.setStatusCode(httpStatus);
-        return response.setComplete();
-    }
-
-    private boolean isAuthMissing(ServerHttpRequest request) {
-        if (!request.getHeaders().containsKey("Authorization")) {
-            return true;
-        }
-        if (!request.getHeaders().getOrEmpty("Authorization").get(0).startsWith("Bearer ")) {
-            return true;
-        }
-        return false;
-    }
-
-    private void populateRequestWithHeaders(ServerWebExchange exchange, String token) {
-        Claims claims = jwtUtils.getAllClaimsFromToken(token);
-        exchange.getRequest().mutate()
-                .header("username", claims.getSubject())
-//                .header("role", String.valueOf(claims.get("role")))
-                .build();
-    }
-
-    private String getAuthHeader(ServerHttpRequest request) {
-        return request.getHeaders().getOrEmpty("Authorization").get(0).substring(7);
-    }
-
-    public static class Config {
-    }
-}
+//@Component
+//public class JwtAuthFilter extends AbstractGatewayFilterFactory<JwtAuthFilter.Config> {
+//
+//    @Autowired
+//    private JwtUtils jwtUtils;
+//
+//
+//    public JwtAuthFilter() {
+//        super(Config.class);
+//    }
+//
+//    @Override
+//    public GatewayFilter apply(Config config) {
+//        return (exchange, chain) -> {
+//            ServerHttpRequest request = exchange.getRequest();
+//
+//            if (request.getHeaders().containsKey("username")) {
+//                return this.onError(exchange, "Invalid header username", HttpStatus.BAD_REQUEST);
+//            }
+//
+//            if (!isAuthMissing(request)) {
+//                final String token = getAuthHeader(request);
+//                if (jwtUtils.isInvalid(token)) {
+//                    return this.onError(exchange, "Authorization header is invalid", HttpStatus.UNAUTHORIZED);
+//                }
+//                populateRequestWithHeaders(exchange, token);
+//            }
+//            return chain.filter(exchange);
+//        };
+//    }
+//
+//    private Mono<Void> onError(ServerWebExchange exchange, String err, HttpStatus httpStatus) {
+//        ServerHttpResponse response = exchange.getResponse();
+//        response.setStatusCode(httpStatus);
+//        return response.setComplete();
+//    }
+//
+//    private boolean isAuthMissing(ServerHttpRequest request) {
+//        if (!request.getHeaders().containsKey("Authorization")) {
+//            return true;
+//        }
+//        if (!request.getHeaders().getOrEmpty("Authorization").get(0).startsWith("Bearer ")) {
+//            return true;
+//        }
+//        return false;
+//    }
+//
+//    private void populateRequestWithHeaders(ServerWebExchange exchange, String token) {
+//        Claims claims = jwtUtils.getAllClaimsFromToken(token);
+//        exchange.getRequest().mutate()
+//                .header("username", claims.getSubject())
+////                .header("role", String.valueOf(claims.get("role")))
+//                .build();
+//    }
+//
+//    private String getAuthHeader(ServerHttpRequest request) {
+//        return request.getHeaders().getOrEmpty("Authorization").get(0).substring(7);
+//    }
+//
+//    public static class Config {
+//    }
+//}

@@ -23,79 +23,25 @@ spring:
           filters:
             - StripPrefix=1
             - PrefixPath=/market-core
+            - JwtAuthFilter
+        - id: auth-service
+          uri: http://localhost:8182
+          predicates:
+            - Path=/auth/**
+          filters:
+            - StripPrefix=1
+            - PrefixPath=/market-auth
+            - JwtAuthFilter
+        - id: cart-service
+          uri: http://localhost:8183
+          predicates:
+            - Path=/cart/**
+          filters:
+            - StripPrefix=1
+            - PrefixPath=/market-cart
+            - JwtAuthFilter
 
-  security:
-    oauth2:
-      client:
-        registration:
-          core-client:
-            provider: spring
-            client-id: core-client
-            client-secret: secret
-            authorization-grant-type: authorization_code
-            redirect-uri: http://127.0.0.1:8180/oauth2/code/{registrationId}
-            scope: openid, core-read
-        provider:
-          spring:
-            issuer-uri: http://localhost:9000
 
-
-
-
-#server:
-#  port: 8180
-#spring:
-#  application:
-#    name: /gateway-service
-#  security:
-#    oauth2:
-#      resourceserver:
-#        opaquetoken:
-#          client-id: core-client
-#          client-secret: secret
-#          introspection-uri:
-##            introspection-uri: http://localhost:8083/auth/realms/baeldung/protocol/openid-connect/token/introspect
-##              client-id: quotes-client
-##              client-secret: <code class="language-css"><CLIENT SECRET>
-#  cloud:
-#    gateway:
-#      globalcors:
-#        corsConfigurations:
-#          '[/**]':
-#            allowedOrigins: "http://localhost:8100"
-#            allowedMethods:
-#              - GET
-#              - POST
-#              - PUT
-#              - DELETE
-#            allowedHeaders: "*"
-#      routes:
-#        - id: core-service
-#          uri: http://localhost:8181
-#          predicates:
-#            - Path=/core/**
-#          filters:
-#            - StripPrefix=1
-#            - PrefixPath=/market-core
-##            - JwtAuthFilter
-#        - id: auth-service
-#          uri: http://localhost:8182
-#          predicates:
-#            - Path=/auth/**
-#          filters:
-#            - StripPrefix=1
-#            - PrefixPath=/market-auth
-#            - JwtAuthFilter
-#        - id: cart-service
-#          uri: http://localhost:8183
-#          predicates:
-#            - Path=/cart/**
-#          filters:
-#            - StripPrefix=1
-#            - PrefixPath=/market-cart
-#            - JwtAuthFilter
-#
-#
 jwt:
   secret: "1324nj3k545gbko3qnhk54jh6hk675lgjgkh54r6d85khgt45dhfg76fj4lee56785ghfgg0d8fj"
 
