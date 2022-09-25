@@ -5,7 +5,7 @@
 	<packaging>pom</packaging>
 	<modules>
 		<module>auth-service</module>
-		<module>order-service</module>
+		<module>cart-service</module>
 		<module>core-service</module>
 		<module>gateway-service</module>
 		<module>front-service</module>

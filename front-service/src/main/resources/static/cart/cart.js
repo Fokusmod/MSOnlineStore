@@ -1,6 +1,6 @@
 angular.module('market-front').controller('cartController', function ($scope, $http, $location, $localStorage) {
 
-    const contextPath = "http://localhost:8180/order/api/v1";
+    const contextPath = "http://localhost:8180/cart/api/v1";
 
     $scope.isEmpty = true
 

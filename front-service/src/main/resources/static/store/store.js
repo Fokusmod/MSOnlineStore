@@ -25,7 +25,7 @@ angular.module('market-front').controller('storeController', function ($scope, $
         $scope.UserAndProductInfo.productId = id;
         $scope.UserAndProductInfo.productCount = 1;
         $scope.UserAndProductInfo.username = $localStorage.webMarketUser.username;
-        $http.post('http://localhost:8180/order/api/v1/cart', $scope.UserAndProductInfo)
+        $http.post('http://localhost:8180/cart/api/v1/cart', $scope.UserAndProductInfo)
             .then(function successCallback(response) {
                 alert("Товар успешно добавлен.")
             }, function failCallback(response) {

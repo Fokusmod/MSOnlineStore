@@ -1,6 +1,6 @@
 angular.module('market-front').controller('orderController', function ($scope, $http, $location, $localStorage) {
 
-    const contextPath = "http://localhost:8180/order/api/v1";
+    const contextPath = "http://localhost:8180/cart/api/v1";
 
     $scope.isEmpty = false
 
@@ -46,7 +46,7 @@ angular.module('market-front').controller('orderController', function ($scope, $
         function () {
             paypal.Buttons({
                 createOrder: function (data, actions) {
-                    return fetch('http://localhost:8180/order/api/v1/paypal/create/' + $localStorage.webMarketUser.username, {
+                    return fetch('http://localhost:8180/cart/api/v1/paypal/create/' + $localStorage.webMarketUser.username, {
                         method: 'post',
                         headers: {
                             'content-type': 'application/json'
@@ -56,14 +56,14 @@ angular.module('market-front').controller('orderController', function ($scope, $
                     });
                 },
                 onApprove: function (data, actions) {
-                    return fetch('http://localhost:8180/order/api/v1/paypal/capture/' + data.orderID, {
+                    return fetch('http://localhost:8180/cart/api/v1/paypal/capture/' + data.orderID, {
                         method: 'post',
                         headers: {
                             'content-type': 'application/json'
                         }
                     }).then(function (response) {
                         response.text().then(msg => alert(msg));
-                        $http.get('http://localhost:8180/order/api/v1/status/' + $localStorage.webMarketUser.username)
+                        $http.get('http://localhost:8180/cart/api/v1/status/' + $localStorage.webMarketUser.username)
                             .then(function (response) {
                                 $scope.loadOrder();
                             });
