@@ -21,12 +21,12 @@ angular.module('market-front').controller('storeController', function ($scope, $
     }
 
     $scope.addToCart = function (id) {
-        $scope.cartDto = {}
-        $scope.cartDto.productId = id;
-        $scope.cartDto.username = $localStorage.webMarketUser.username;
-        $http.post('http://localhost:8180/cart/api/v1/cart', $scope.cartDto)
+        $scope.UserAndProductInfo = {}
+        $scope.UserAndProductInfo.productId = id;
+        $scope.UserAndProductInfo.productCount = 1;
+        $scope.UserAndProductInfo.username = $localStorage.webMarketUser.username;
+        $http.post('http://localhost:8180/cart/api/v1/cart', $scope.UserAndProductInfo)
             .then(function successCallback(response) {
-                console.log($scope.cartDto)
                 alert("Товар успешно добавлен.")
             }, function failCallback(response) {
                 alert(response.data.message)

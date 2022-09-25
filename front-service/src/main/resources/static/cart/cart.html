@@ -1,5 +1,4 @@
-<div>
-    <h1>Корзина</h1>
+<div ng-show="isEmpty">
     <table class="table">
         <thead>
         <tr>
@@ -16,9 +15,28 @@
             <td>{{p.count}}</td>
             <td>{{p.sum}}</td>
             <td>
-                <button ng-click="deleteProductFromCart(p.id)" class="btn btn-primary" type=button>Delete</button>
+                <button ng-click="deleteProductFromCart(p.id, p.count)" class="btn btn-primary" type=button>Delete</button>
             </td>
         </tr>
         </tbody>
     </table>
+</div>
+<div ng-show="isEmpty">
+    <h2>Стоимость оплаты: {{cartPrice()}} </h2>
+    <form novalidate ng-submit="createOrder()">
+        <div class="mb-3">
+            <label class="form-label">Адрес Доставки</label>
+            <input type="text" class="form-control" placeholder="Адрес" ng-model="cartOrder.address">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Номер телефона</label>
+            <input type="text" class="form-control" placeholder="Номер" ng-model="cartOrder.phoneNumber">
+        </div>
+        <p></p>
+        <button type="submit" class="btn btn-primary">Оформить заказ</button>
+    </form>
+</div>
+
+<div style="margin-top: 40px" ng-show="!isEmpty">
+    <h1  align="center" style="color:silver;">Корзина пуста</h1>
 </div>

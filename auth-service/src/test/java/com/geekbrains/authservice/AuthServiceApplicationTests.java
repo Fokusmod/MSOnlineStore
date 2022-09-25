@@ -28,7 +28,7 @@ class AuthServiceApplicationTests extends AuthTest {
 //        registrationRequest.setPassword("Test");
 //        registrationRequest.setEmail("Test@mail.ru");
 //        ResponseEntity<String> response = testRestTemplate.postForEntity("/api/v1/registration",registrationRequest,String.class);
-//        System.out.println(response.getStatusCode());
+//
 //        assert response.getBody().equals("200 CREATED");
 //    }
 

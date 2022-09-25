@@ -9,10 +9,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 
-import org.springframework.kafka.core.KafkaTemplate;
-import org.springframework.kafka.support.SendResult;
-import org.springframework.util.concurrent.ListenableFuture;
-import org.springframework.util.concurrent.ListenableFutureCallback;
 import org.springframework.web.bind.annotation.*;
 
 @Slf4j
@@ -22,8 +18,6 @@ import org.springframework.web.bind.annotation.*;
 public class CartController {
 
     private final CartService cartService;
-
-    private final KafkaTemplate kafkaTemplate;
     private final UserServiceIntegration userServiceIntegration;
     private final ProductServiceIntegration productServiceIntegration;
 
@@ -31,20 +25,8 @@ public class CartController {
     @GetMapping("/cart/{username}")
     @ResponseStatus(HttpStatus.OK)
     public Cart showCart(@PathVariable String username) {
-        Cart cart = cartService.getCart(userServiceIntegration.findByUsername(username).getId());
-
-        ListenableFuture<SendResult<String, CartDto>> future = kafkaTemplate.send("getCart", new CartDto(cart.getUserId(), cart.getItems()));
-        future.addCallback(new ListenableFutureCallback<SendResult<String, CartDto>>() {
-            @Override
-            public void onFailure(Throwable ex) {
-                log.debug("{}", "Cart has not been added to topic");
-            }
-            @Override
-            public void onSuccess(SendResult<String, CartDto> result) {
-                log.debug("{}", "Successful adding cart for callService");
-            }
-        });
-        return cart;
+        Long id = userServiceIntegration.findByUsername(username).getId();
+        return cartService.getCart(id);
     }
 
     @PostMapping("/cart")
@@ -55,8 +37,8 @@ public class CartController {
                 .id(product.getId())
                 .title(product.getTitle())
                 .price(product.getPrice())
-                .count(1L)
-                .sum(product.getPrice())
+                .count(userInfo.getProductCount())
+                .sum((int) (product.getPrice() * userInfo.getProductCount()))
                 .build();
 
         UserDto user = userServiceIntegration.findByUsername(userInfo.getUsername());
@@ -71,11 +53,16 @@ public class CartController {
                 .id(product.getId())
                 .title(product.getTitle())
                 .price(product.getPrice())
-                .count(1L)
-                .sum(product.getPrice())
+                .count(userInfo.getProductCount())
+                .sum((int) (product.getPrice() * userInfo.getProductCount()))
                 .build();
         UserDto user = userServiceIntegration.findByUsername(userInfo.getUsername());
         cartService.deleteProduct(user.getId(), cartItem);
+    }
+
+    @DeleteMapping("/cart/{username}")
+    public void deleteCart(@PathVariable String username) {
+       cartService.deleteCart(userServiceIntegration.findByUsername(username).getId());
     }
 
 

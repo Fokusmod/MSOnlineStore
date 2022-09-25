@@ -26,6 +26,10 @@
                 templateUrl: 'report/web_socket_report.html',
                 controller: 'reportController'
             })
+            .when('/order', {
+                templateUrl: 'order/order.html',
+                controller: 'orderController'
+            })
             .when('/cart', {
                 templateUrl: 'cart/cart.html',
                 controller: 'cartController'
