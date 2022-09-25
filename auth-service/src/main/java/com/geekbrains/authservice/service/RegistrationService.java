@@ -26,7 +26,6 @@ public class RegistrationService {
 
     @ExecutionTime
     public void save(RegistrationRequest registrationRequest) {
-        System.out.println(registrationRequest);
         User user = new User();
         user.setUsername(registrationRequest.getUsername());
         user.setPassword(passwordEncoder.encode(registrationRequest.getPassword()));

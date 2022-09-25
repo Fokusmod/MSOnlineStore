@@ -9,7 +9,6 @@ angular.module('market-front').controller('registrationController', function ($s
                 alert(response.data.messages)
                 $location.path('/');
             }, function failCallback(response) {
-                console.log(response.data.messages)
                 alert(response.data.messages)
             })
     };
