@@ -1,5 +1,7 @@
 package com.geekbrains.cartservice.config;
 
+import com.geekbrains.cartservice.proretries.ProductServiceIntegrationProperties;
+import com.geekbrains.cartservice.proretries.UserServiceIntegrationProperties;
 import io.netty.channel.ChannelOption;
 import io.netty.handler.timeout.ReadTimeoutHandler;
 import io.netty.handler.timeout.WriteTimeoutHandler;

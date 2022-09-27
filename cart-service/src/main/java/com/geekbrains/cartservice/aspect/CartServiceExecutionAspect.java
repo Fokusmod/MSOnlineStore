@@ -1,6 +1,7 @@
 package com.geekbrains.cartservice.aspect;
 
 
+import com.geekbrains.cartservice.service.CartStatisticService;
 import lombok.RequiredArgsConstructor;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;

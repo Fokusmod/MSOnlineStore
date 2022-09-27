@@ -1,4 +1,4 @@
-angular.module('market-front').controller('registrationController', function ($scope, $http, $location) {
+angular.module('market-front').controller('registrationController', function ($scope, $http, $location,$localStorage) {
 
     const contextPath = 'http://localhost:8180/auth/api/v1';
 
@@ -7,7 +7,7 @@ angular.module('market-front').controller('registrationController', function ($s
             .then(function successCallback(response) {
                 $scope.new_user = null;
                 alert(response.data.messages)
-                $location.path('/');
+                $location.path('/auth');
             }, function failCallback(response) {
                 alert(response.data.messages)
             })
