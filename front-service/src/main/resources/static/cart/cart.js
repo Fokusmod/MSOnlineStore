@@ -2,14 +2,18 @@ angular.module('market-front').controller('cartController', function ($scope, $h
 
     const contextPath = "http://localhost:8180/cart/api/v1";
 
-    $scope.isEmpty = true
+    $scope.isEmpty = false
 
     $scope.loadProductFromCart = function () {
         $http.get(contextPath + '/cart/' + $localStorage.webMarketUser.username)
             .then(function successCallback(response) {
-                if (response.data === "") {
-                    $scope.isEmpty = false
+                if (response.data === "" || response.data.items.length === 0) {
+                    $scope.isEmpty = true
+                    console.log($scope.isEmpty )
                 } else {
+                    $scope.isEmpty = false
+                    console.log($scope.isEmpty )
+                    console.log(response)
                     $scope.cartProducts = response.data.items;
                     $scope.cartPrice = function () {
                         var total = 0;

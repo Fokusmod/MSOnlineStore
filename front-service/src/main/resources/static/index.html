@@ -12,74 +12,101 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.10/ngStorage.min.js"></script>
 
-    <link href = "webjars/bootstrap/css/bootstrap.min.css" rel = "stylesheet">
+    <link href="webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <script src="webjars/jquery/jquery.min.js"></script>
     <script src="webjars/sockjs-client/sockjs.min.js"></script>
     <script src="webjars/stomp-websocket/stomp.min.js"></script>
 
 
 </head>
-<body ng-app="market-front">
-<div class="container" ng-controller="indexController">
+<body style="background-color: white" ng-app="market-front">
+<div ng-controller="indexController">
 
-    <p></p>
+    <ul class="nav justify-content" style="background:indigo; height: 120px; padding-top: 10px;">
+        <label style="color:white; font-size: 30px; margin-left: 100px; margin-top: 25px">MSOnlineStore</label>
+        <li class="nav-item li div">
+            <a class="nav-link" href="#!/store" style="margin-left: 700px; color: silver;">
+                <svg style="margin-left: 15px; margin-top: 30px;" xmlns="http://www.w3.org/2000/svg" width="25"
+                     height="25" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                    <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783
+                    6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1
+                    1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0
+                    3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.
+                    5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.
+                    5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2
+                    0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+                    <br><span>Маркет</span></svg>
+            </a>
+        </li>
+        <li class="nav-item li div">
+            <a class="nav-link " href="#!/create" style="color: silver;">
+                <svg style="margin-left: 20px; margin-top: 30px;" xmlns="http://www.w3.org/2000/svg" width="25"
+                     height="25" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                    <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                    <br><span>Добавить</span></svg>
+            </a>
 
-    <ul class="nav justify-content-center">
-        <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="#!/">Главная страница</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#!/store">Список продуктов</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#!/create">Добавить продукт</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#!/report">Отчёт</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#!/order">Заказ</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#!/cart">Корзина</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#!/registration">Регистрация</a>
-        </li>
-        <li class="nav-item" ng-show="!isUserLoggedIn()">
-            <form class="align-middle" ng-submit="tryToAuth()">
-                <div class="input-group input-group-sm" style="padding: 4px;">
-                    <input id="navLoginField" class="form-control" ng-model="user.username" type="text"
-                           aria-describedby="inputGroup-sizing-sm" style="margin-left: 10px;">
+        <li class="nav-item li div">
+            <a class="nav-link" href="#!/report" style="color: silver">
+                <svg style="margin-left: 10px; margin-top: 30px;" xmlns="http://www.w3.org/2000/svg" width="25" height="25"
+                     fill="currentColor" class="bi bi-file-earmark-text" viewBox="0 0 16 16">
+                    <path d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0
+                    1h-5a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z"/>
+                    <path d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5L9.5 0zm0 1v2A1.5 1.5 0 0 0 11
+                    4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5.5z"/>
+                    <br><span>Отчёт</span></svg>
+            </a>
 
-                    <input id="navPasswordField" class="form-control" ng-model="user.password" type="password"
-                           aria-describedby="inputGroup-sizing-sm" style="margin-left: 10px;">
-
-                    <button id="navLoginSubmit" class="btn btn-outline-warning btn-sm"
-                            style="margin-left: 10px;" type="submit">Войти
-                    </button>
-                </div>
-            </form>
         </li>
-        <li class="nav-item" ng-show="isUserLoggedIn()" style="padding: 4px;">
-            <button class="btn btn-outline-secondary btn-sm" ng-click="tryToLogout()">Выйти</button>
+        <li class="nav-item div li">
+            <a class="nav-link" href="#!/order" style="color: silver">
+                <svg style="margin-left: 7px; margin-top: 30px;" xmlns="http://www.w3.org/2000/svg" width="25" height="25"
+                     fill="currentColor" class="bi bi-bag-check " viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M10.854 8.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1
+                    .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+                    <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2
+                    2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
+                </svg>
+                <br><span>Заказ</span></svg></a>
+
+        </li>
+        <li class="nav-item div li" >
+            <a class="nav-link" href="#!/cart" style="color:silver">
+                <svg style="margin-left: 17px; margin-top: 30px;" xmlns="http://www.w3.org/2000/svg" width="25" height="25"
+                     fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
+                    <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1
+                    13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5
+                    12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1
+                    0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                    <br><span>Корзина</span></svg></a> </svg>
+        </li>
+        <li class="nav-item div li">
+            <a class="nav-link" href="#!/auth" style="color: silver;">
+                <svg style="margin-left: 35px; margin-top: 30px;" xmlns="http://www.w3.org/2000/svg" width="25" height="25"
+                     fill="currentColor" class="bi bi-person-circle " viewBox="0 0 16 16">
+                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242
+                    11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                    <br><span>Авторизация</span></svg>
+            </a>
         </li>
     </ul>
 
 
     <ng-view></ng-view>
     <script src="index.js"></script>
-    <script src="mainPage/mainPage.js"></script>
     <script src="store/store.js"></script>
     <script src="create/create.js"></script>
     <script src="edit_product/edit_product.js"></script>
     <script src="cart/cart.js"></script>
+    <script src="auth/auth.js"></script>
     <script src="registration/registration.js"></script>
     <script src="report/web_socket_report.js"></script>
     <script src="order/order.js"></script>
-    <!--    <script src="https://www.paypal.com/sdk/js?client-id=AZX9sEz_m_KSN8L6yOcKLZMq4BJ5bJ1uRpNzPE_5PqswQIRysphIDBii578puqKFxEEP-3QoK5O6Kk94&currency=RUB"></script>-->
-
-
+    <link rel="stylesheet" href="myCss.css">
+    <link rel="stylesheet" type="text/css" href="cart/cart.css">
 </div>
 </body>
 </html>

@@ -1,0 +1,114 @@
+.flex-container-cart {
+    display: flex;
+    background-color: white;
+}
+.cart-container {
+
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 20%);
+    justify-content: space-between;
+    overflow: hidden;
+    width: 60%;
+    height: auto;
+    margin: 30px 5px 5px 5px;
+    background-color: white;
+    box-shadow: 0px 0px 3px 3px silver;
+
+    margin-left: 20%;
+
+    border-radius: 5px;
+}
+.box-cart {
+    display: flex;
+    height: auto;
+    width: 900px;
+
+}
+
+.cart-image {
+    height: 70px;
+    width: 70px;
+    margin: 5px 5px 5px 5px;
+}
+.cart-title {
+    margin-top: 25px;
+    font-weight: bold;
+    font-size: 25px;
+}
+.cart {
+    height: 40px;
+    width: 100px;
+    background-color: indigo;
+    color: silver;
+    font-size: 17px;
+    border-color: indigo;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+.cart:hover{
+    cursor: pointer;
+    color: white;
+
+}
+.preorder-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+
+
+}
+.preorder {
+    margin: 100px 5px 5px 5px;
+    background-color: white;
+    box-shadow: 0px 0px 3px 3px silver;
+    height: 330px;
+    width: 565px;
+
+}
+.prepare-title {
+    font-size: 30px;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+.data {
+    font-size: 30px;
+    text-align: center;
+}
+.prepare-input {
+    text-align: center;
+    height: 70px;
+    width: auto;
+
+}
+.input-dev {
+    margin-top: 10px;
+    height: 30px;
+    width: 450px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 2px 2px indigo;
+    font-size: 20px;
+}
+.send-button {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+}
+.send {
+    background-color: indigo;
+    font-size: 17px;
+    font-weight: bold;
+    color: silver;
+    height: 40px;
+    width: 200px;
+    border-radius: 5px;
+}
+.send:hover {
+    color: white;
+    cursor: pointer;
+}
