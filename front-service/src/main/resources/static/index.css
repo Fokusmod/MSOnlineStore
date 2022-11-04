@@ -1,0 +1,175 @@
+.navigation {
+    display: flex;
+    background-color: #302f30;
+    width: 100%;
+    height: 120px;
+    margin: auto;
+    position: fixed;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #282728;
+}
+
+.title {
+    width: auto;
+    background-color: #302f30;
+    color: white;
+    font-size: 30px;
+    font-family: "Times New Roman";
+    margin: 30px 10px 10px 10px;
+
+}
+
+.navigation-title {
+    width: 21%;
+    text-align: center;
+}
+
+.navigation-items {
+    margin-left: 15%;
+    margin-right: auto;
+    display: inline-flex;
+    text-align: center;
+    width: auto;
+}
+
+.svg-style {
+    margin-top: 5px;
+    color: silver;
+    display: block;
+    margin-inline: auto;
+}
+
+.nav-li {
+    width: 100px;
+    list-style-type: none;
+    margin: auto 5px auto 5px;
+    color: silver;
+    display: block;
+}
+
+.nav-a {
+    color: silver;
+    text-decoration: none;
+    height: auto;
+    width: auto;
+    margin: 5px 5px 5px 5px;
+    display: block;
+}
+
+
+.nav-a:hover {
+    color: white;
+    cursor: pointer;
+}
+
+.nav-a:hover svg {
+    color: white;
+    cursor: pointer;
+}
+
+.user-auth {
+    width: 19%;
+    display: inline-flex;
+    text-align: center;
+}
+
+.footer-div {
+    background-color: #302f30;
+    height: 120px;
+    text-align: center;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #302f30;
+    font-family: "Times New Roman";
+    font-size: 30px;
+    color: white;
+
+}
+
+.login-user {
+    display: block;
+    width: 19%;
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.login-image {
+    border-radius: 100%;
+    height: 40px;
+}
+
+.login-username {
+    margin-left: auto;
+    margin-right: auto;
+    width: 160px;
+    color: silver;
+}
+.login-user:hover .dropbtn {
+    background-color: #3b3a3b;
+    cursor: pointer;
+    color: white;
+}
+
+.login-user:hover .login-username {
+    background-color: #3b3a3b;
+    cursor: pointer;
+    color: white;
+}
+
+
+
+.dropbtn {
+    padding-bottom: 5px;
+    font-size: 16px;
+    border: none;
+    margin-left: auto;
+    margin-right: auto;
+    width: 160px;
+    color: silver;
+    background-color: #302f30;
+}
+
+/* Контейнер <div> - необходим для размещения выпадающего содержимого */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Выпадающее содержимое (скрыто по умолчанию) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px #3b3a3b;
+    background-color: #343434;
+    border: 1px solid #2a2a2a;
+}
+
+/* Ссылки внутри выпадающего списка */
+.dropdown-content a {
+    color: silver;
+    padding: 7px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.show {
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #5e5e5e;
+    color: white;
+}
+
+
+
+
+
+
+
+
+
+

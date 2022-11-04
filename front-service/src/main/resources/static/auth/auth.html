@@ -1,41 +1,31 @@
-<div>
-    <div ng-show="!isUserLoggedIn()"
-         style="background-color: white; box-shadow: 0px 0px 5px 5px silver;  width: 400px;  margin:100px auto;">
-
-        <form ng-submit="tryToAuth()">
-            <div style="font-family: 'Times New Roman'">
-                <p align="center" style="font-size: 30px; padding-top: 40px;"><b>Авторизация</b></p>
-                <p align="center" style="color: indigo; align-content: center">Пожалуйста авторизуйтесь</p>
-                <div style="background-color: white; margin: 0px 60px auto; font-family: 'Times New Roman'">
-                    <span style="font-size: 20px; padding-top: 15px; margin-top: 50px; "><b>Логин</b></span><br>
-                    <input placeholder="Введите логин" ng-model="user.username" type="text"
-                           style=" border-radius: 5px; width: 270px; height: 40px;font-size: 20px"><br>
-
-                    <span align="center"
-                          style="font-size: 20px; padding-top: 15px; margin-top: 50px; "><b>Пароль</b></span><br>
-                    <input placeholder="Введите пароль" ng-model="user.password" type="password"
-                           style="border-radius: 5px; width: 270px; height: 40px;font-size: 20px"><br>
-                    <a style="margin-left: 70px" href="http://localhost:8100/market-front/?#!/registration">Зарегистрироваться </a>
-
-                    <button class="btn-test" id="navLoginSubmit"
-                            style="margin-bottom: 30px; margin-left: 60px; width: 150px; height: 40px;
-                            margin-top: 25px;"
-                            type="submit">Войти
-                    </button>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="auth/auth.css">
+    <title></title>
+</head>
+<body>
+<div class="main-container">
+    <div class="auth-div">
+        <div class="auth-title">Авторизация</div>
+            <form class="auth-form" ng-submit="tryToAuth()">
+                <div class="title-cls">Логин</div>
+                <div class="title-cls"><input class="auth-input" ng-model="user.username" type="text" placeholder="Введите логин"></div>
+                <div class="title-cls">Пароль</div>
+                <div class="title-cls"><input class="auth-input" ng-model="user.password" type="password" placeholder="Введите пароль"></div>
+                <div class="title-cls">
+                    <a class="auth-a" href="http://localhost:8100/market-front/?#!/registration">Зарегистрироваться </a>
                 </div>
-            </div>
-        </form>
-    </div>
-
-
-    <div ng-show="isUserLoggedIn()"
-         style="background-color: white; box-shadow: 0px 0px 5px 5px silver; width: 400px;  margin:100px auto; font-family: 'Times New Roman'">
-        <p align="center" style="font-size: 30px; padding-top: 40px;"><b>Вы аутентифицированы</b></p>
-        <button class="btn-test" ng-click="tryToLogout()" style="margin-bottom: 30px; margin-left: 120px; width: 150px;
-                    height: 40px; margin-top: 25px;" type="submit">Выйти
-        </button>
+                <div class="title-cls">
+                    <button class="auth-btn" id="navLoginSubmit" type="submit">Войти</button>
+                </div>
+            </form>
     </div>
 </div>
+
+</body>
 
 
 

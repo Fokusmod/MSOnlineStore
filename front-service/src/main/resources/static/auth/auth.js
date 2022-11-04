@@ -8,7 +8,6 @@ angular.module('market-front').controller('authController', function ($rootScope
                 if (response.data.token) {
                     $http.defaults.headers.common.Authorization = 'Bearer ' + response.data.token;
                     $localStorage.webMarketUser = {username: $scope.user.username, token: response.data.token};
-
                     $scope.user.username = null;
                     $scope.user.password = null;
                     $location.path('/store');
@@ -26,20 +25,6 @@ angular.module('market-front').controller('authController', function ($rootScope
             $scope.user.password = null;
         }
     };
-
-    $scope.clearUser = function () {
-        delete $localStorage.webMarketUser;
-        $http.defaults.headers.common.Authorization = '';
-    };
-
-    $rootScope.isUserLoggedIn = function () {
-        if ($localStorage.webMarketUser) {
-            return true;
-        } else {
-            return false;
-        }
-    };
-
 
 
     // const registrationUrl = 'http://localhost:8180/auth/api/v1';

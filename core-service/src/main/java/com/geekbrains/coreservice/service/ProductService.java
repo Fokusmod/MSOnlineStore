@@ -23,14 +23,17 @@ public class ProductService {
 
     private final ProductRepository repository;
     private final CategoryService categoryService;
+
     @ExecutionTime
     public List<Product> findAll() {
         return repository.findAll();
     }
+
     @ExecutionTime
     public Page<Product> findCatalog(int pageIndex, int pageSize) {
         return repository.findAll(PageRequest.of(pageIndex, pageSize, Sort.by("id")));
     }
+
     @ExecutionTime
     public Optional<Product> findByTitle(String title) {
         return repository.findByTitle(title);
@@ -40,6 +43,7 @@ public class ProductService {
     public Optional<Product> findById(Long id) {
         return repository.findById(id);
     }
+
     @ExecutionTime
     @Transactional
     public void saveProductFromDto(ProductDto productDto) {
@@ -52,6 +56,7 @@ public class ProductService {
         product.setCategory(category);
         repository.save(product);
     }
+
     @ExecutionTime
     public void delete(Long id) {
         repository.deleteById(id);
@@ -68,6 +73,7 @@ public class ProductService {
     public List<Product> betweenPrice(int min, int max) {
         return repository.findByPriceBetween(min, max);
     }
+
     @ExecutionTime
     @Transactional
     public void updateProductFromDto(ProductDto change_product) {
@@ -79,5 +85,11 @@ public class ProductService {
                 .orElseThrow(() ->
                         new ResourceNotFoundException("Category title = " + change_product.getCategoryTitle() + " not found"));
         product.setCategory(category);
+    }
+
+    public Page<Product> findByCategory(String categoryTitle, int pageIndex, int pageSize) {
+        Category category = categoryService.findByTitle(categoryTitle)
+                .orElseThrow(() -> new ResourceNotFoundException("Category title = " + categoryTitle + " not found"));
+        return repository.findByCategory(category, PageRequest.of(pageIndex, pageSize));
     }
 }

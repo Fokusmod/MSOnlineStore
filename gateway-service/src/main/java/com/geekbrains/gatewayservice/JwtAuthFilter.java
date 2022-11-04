@@ -4,6 +4,7 @@ package com.geekbrains.gatewayservice;
 import io.jsonwebtoken.Claims;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory;
@@ -17,6 +18,7 @@ import reactor.core.publisher.Mono;
 
 
 @Component
+@Slf4j
 public class JwtAuthFilter extends AbstractGatewayFilterFactory<JwtAuthFilter.Config> {
 
     @Autowired
@@ -49,6 +51,7 @@ public class JwtAuthFilter extends AbstractGatewayFilterFactory<JwtAuthFilter.Co
 
     private Mono<Void> onError(ServerWebExchange exchange, String err, HttpStatus httpStatus) {
         ServerHttpResponse response = exchange.getResponse();
+        log.debug("{}", err);
         response.setStatusCode(httpStatus);
         return response.setComplete();
     }

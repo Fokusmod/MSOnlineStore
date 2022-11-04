@@ -3,48 +3,51 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="myCss.css">
+    <link rel="stylesheet" type="text/css" href="store/sto.css">
     <title></title>
 </head>
 <body>
-<div class="flex-container">
-    <div class="main-container">
-        <div ng-repeat="p in productData.content" class="container">
-            <div class="cart-box">
-                <div class="title" >
-                    <img class="store-image" src="https://economic-definition.com/Preview_Figures/150/080/1099254284-kak_pravilo__to_chto_proizvodit_sya_posredstvom_trudovoy_deyatel_nosti_mozhet_byt__ispol_zovano_dlya_bartera.jpg"></div>
-                <div class="title">{{p.title}}</div>
-                <div class="price-title">{{p.price}}</div>
-            </div>
-            <button ng-click="addToCart(p.id)" ng-show="isUserLoggedIn()" class="cart-btn">В корзину</button>
-        </div>
+<div id="up" class="flex-container">
+    <div class="category">
+        <label class="category-title">Категории</label>
+        <button class="category-btn" ng-repeat="c in category" ng-click="sortByCategory(c.title)">{{c.title}}</button>
     </div>
+        <div class="main-container">
+            <div ng-repeat="p in productData.content" class="container">
+                <div class="cart-box">
+                    <div class="title">
+                    <img class="store-image" src="https://economic-definition.com/Preview_Figures/150/080/1099254284-kak_pravilo__to_chto_proizvodit_sya_posredstvom_trudovoy_deyatel_nosti_mozhet_byt__ispol_zovano_dlya_bartera.jpg"></div>
+                    <div class="title-product">{{p.title}}</div>
+                    <div class="price-title">{{p.price}}</div>
+                </div>
+                <button ng-click="addToCart(p.id)"  class="cart-button">В корзину</button>
+            </div>
+        </div>
+
 </div>
-<div class="wrapper">
+<div class="navigable-pages">
     <ul class="pagination">
-        <li class="page-item">
-            <a class="page-link" aria-label="Previous" ng-click="loadPrevious()">
-                <span aria-hidden="true">&laquo;</span>
-            </a>
+        <li class="page-item li-item">
+
+                <a class="page-link wrapper-a" aria-label="Previous" ng-click="loadPrevious()">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+
         </li>
 
-        <li class="page-item" ng-repeat="p in pagesArray">
-            <button class="page-link" ng-click="loadProducts(p)">{{p}}</button>
+        <li class="page-item li-item" ng-repeat="p in pagesArray">
+            <button class="page-link wrapper-a" ng-click="loadProducts(p)">{{p}}</button>
+
         </li>
 
-        <li class="page-item">
-            <a class="page-link" aria-label="Next" ng-click="loadNext()">
+        <li class="page-item li-item">
+            <a class="page-link wrapper-a" aria-label="Next" ng-click="loadNext()">
                 <span aria-hidden="true">&raquo;</span>
             </a>
         </li>
     </ul>
+
 </div>
-
-
-<nav class="pagination-dev" aria-label="Page navigation example">
-
-</nav>
-
 </body>
 </html>
 

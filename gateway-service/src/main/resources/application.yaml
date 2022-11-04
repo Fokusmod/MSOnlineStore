@@ -44,4 +44,8 @@ spring:
 
 jwt:
   secret: "1324nj3k545gbko3qnhk54jh6hk675lgjgkh54r6d85khgt45dhfg76fj4lee56785ghfgg0d8fj"
+logging:
+  level:
+    com.geekbrains.gatewayservice: debug
+
 

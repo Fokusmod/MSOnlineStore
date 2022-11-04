@@ -2,7 +2,10 @@ package com.geekbrains.coreservice.repository;
 
 
 
+import com.geekbrains.coreservice.model.Category;
 import com.geekbrains.coreservice.model.Product;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -25,5 +28,5 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
     Optional<Product> findByTitle(String title);
 
-
+    Page<Product> findByCategory(Category category, Pageable pageable);
 }
