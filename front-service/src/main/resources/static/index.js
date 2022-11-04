@@ -53,4 +53,17 @@
 
 angular.module('market-front').controller('indexController', function ($rootScope, $scope, $http,$localStorage) {
 
+    $scope.clearUser = function () {
+        delete $localStorage.webMarketUser;
+        $http.defaults.headers.common.Authorization = '';
+    };
+
+    $rootScope.isUserLoggedIn = function () {
+        if ($localStorage.webMarketUser) {
+            document.getElementById("username").innerHTML = $localStorage.webMarketUser.username;
+            return true;
+        } else {
+            return false;
+        }
+    };
 });

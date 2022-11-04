@@ -27,7 +27,7 @@ public class ProductController {
     @GetMapping("/products")
     @ResponseStatus(HttpStatus.OK)
     public Page<ProductDto> findAll(@RequestParam(name = "i", defaultValue = "1") int pageIndex) {
-        return productService.findCatalog(pageIndex - 1, 10).map(ProductDto::new);
+        return productService.findCatalog(pageIndex - 1, 12).map(ProductDto::new);
     }
 
     @GetMapping("/products/{id}")
@@ -76,6 +76,11 @@ public class ProductController {
     public List<ProductDto> findAll() {
         List<ProductDto> collect = productService.findAll().stream().map(ProductDto::new).collect(Collectors.toList());
         return collect;
+    }
+
+    @GetMapping("/product/sort/{category}")
+    public Page<ProductDto> findByCategory(@PathVariable String category, @RequestParam(name = "i", defaultValue = "1") int pageIndex) {
+        return productService.findByCategory(category, pageIndex - 1, 12).map(ProductDto::new);
     }
 }
 

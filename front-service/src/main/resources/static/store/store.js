@@ -10,6 +10,10 @@ angular.module('market-front').controller('storeController', function ($scope, $
         if (totalPage !== page) {
             ++page;
             $scope.loadProducts(page)
+            document.getElementById("up").scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            })
         }
     }
 
@@ -17,8 +21,19 @@ angular.module('market-front').controller('storeController', function ($scope, $
         if (page !== 1) {
             --page;
             $scope.loadProducts(page)
+            document.getElementById("up").scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            })
         }
     }
+
+    $scope.loadCategory = function () {
+        $http.get(contextPath + '/category')
+            .then(function (response) {
+                $scope.category = response.data;
+            })
+    };
 
     $scope.addToCart = function (id) {
         $scope.UserAndProductInfo = {}
@@ -53,6 +68,10 @@ angular.module('market-front').controller('storeController', function ($scope, $
             $scope.productData = response.data;
             $scope.pagesArray = $scope.createPagesArray(1, totalPage);
             page = index;
+            document.getElementById("up").scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            })
         })
     }
 
@@ -69,5 +88,24 @@ angular.module('market-front').controller('storeController', function ($scope, $
         $location.path('/edit_product/' + productId);
     }
 
+    $scope.sortByCategory = function (category, index = 1) {
+        $http({
+            url: contextPath + '/product/sort/' + category,
+            method: 'GET',
+            params: {
+                i: index
+            }
+        })
+            .then(function successCallback(response) {
+                totalPage = response.data.totalPages;
+                $scope.productData = response.data;
+                $scope.pagesArray = $scope.createPagesArray(1, totalPage);
+                page = index;
+            }, function failCallback(response) {
+                console.log(response)
+            })
+    };
+
     $scope.loadProducts(page);
+    $scope.loadCategory();
 });
