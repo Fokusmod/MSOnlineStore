@@ -1,0 +1,94 @@
+body, html {
+    width: 100%;
+    height: 100%;
+}
+.main-container {
+    background-color: #434243;
+    min-height: 100%;
+    display: flex;
+}
+.stat-window{
+    margin-top: 130px;
+    margin-left: 5px;
+    margin-right: auto;
+    height: 600px;
+    width: 400px;
+    background-color: #302f30;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #282728;
+    overflow-y: auto;
+}
+
+.stat-service{
+    margin-top: 130px;
+    margin-left: auto;
+    margin-right: 5px;
+    height: 600px;
+    width: 400px;
+    background-color: #302f30;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #282728;
+}
+
+.download-stat {
+    display: flex;
+    height: 60px;
+    width: auto;
+}
+
+#stat-window-scroll::-webkit-scrollbar {
+    width: 5px;
+    background-color: #302f30;
+    border-radius: 10px;
+    border-width: 3px;
+    border-color: #282728;
+}
+#stat-window-scroll::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #626262;
+}
+.hr-style {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    height: 3px;
+    background-color: silver;
+}
+.report-btn {
+    height: 45px;
+    width: 45px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #282728;
+    border-radius: 10px;
+    background-color: #434243;
+}
+.report-label {
+
+}
+
+.stat-title {
+    font-family: "Times New Roman";
+    font-size: 20px;
+    font-weight: bold;
+    color: silver;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 60%;
+    text-align: center;
+
+}
+.stat-download {
+    font-family: "Times New Roman";
+    font-size: 20px;
+    margin-top: auto;
+    margin-bottom: auto;
+    text-align: center;
+    width: 20%;
+}
+svg {
+    color: silver;
+}

@@ -8,23 +8,29 @@
 </head>
 <body>
 <div class="main-container">
-    <div class="auth-div">
+    <div class="auth-form">
         <div class="auth-title">Авторизация</div>
-            <form class="auth-form" ng-submit="tryToAuth()">
-                <div class="title-cls">Логин</div>
-                <div class="title-cls"><input class="auth-input" ng-model="user.username" type="text" placeholder="Введите логин"></div>
-                <div class="title-cls">Пароль</div>
-                <div class="title-cls"><input class="auth-input" ng-model="user.password" type="password" placeholder="Введите пароль"></div>
-                <div class="title-cls">
-                    <a class="auth-a" href="http://localhost:8100/market-front/?#!/registration">Зарегистрироваться </a>
+        <div class="auth-container">
+            <form novalidate ng-submit="tryToAuth()">
+                <div class="mb-3">
+                    <label class="form-label">Логин</label>
+                    <input type="text" class="form-control" placeholder="Введите логин" ng-model="user.username">
                 </div>
-                <div class="title-cls">
-                    <button class="auth-btn" id="navLoginSubmit" type="submit">Войти</button>
+                <div class="mb-3">
+                    <label class="form-label">Пароль</label>
+                    <input type="text" class="form-control" placeholder="Введите пароль" ng-model="user.password">
                 </div>
+                <div class="form-center">
+                    <button type="submit" class="auth-btn">Войти</button>
+                </div>
+
             </form>
+        </div>
+        <div class="form-center">
+            <a class="auth-a" href="http://localhost:8100/market-front/?#!/registration">Зарегистрироваться </a>
+        </div>
     </div>
 </div>
-
 </body>
 
 
