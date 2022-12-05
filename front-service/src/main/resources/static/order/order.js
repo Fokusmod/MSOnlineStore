@@ -29,11 +29,22 @@ angular.module('market-front').controller('orderController', function ($scope, $
                     }
                     return total
                 }
+
             },function failCallback(response){
                 $scope.isEmpty = false
             })
     }
-    $scope.loadOrder()
+    $scope.loadOrder();
+
+
+    $scope.deleteOrder = function () {
+        $http.delete(contextPath + '/order/delete/' + $localStorage.webMarketUser.username)
+            .then(function (response) {
+                alert("Ваш заказ был удалён")
+                $scope.loadOrder();
+            })
+    };
+
 
     function loadAsync(url, callback) {
         var s = document.createElement('script');

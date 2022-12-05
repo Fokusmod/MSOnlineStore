@@ -9,10 +9,15 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class UserDto {
 
-
     private Long id;
 
     private String username;
 
+    private String Email;
 
+
+    public UserDto(Long id, String username) {
+        this.id = id;
+        this.username = username;
+    }
 }

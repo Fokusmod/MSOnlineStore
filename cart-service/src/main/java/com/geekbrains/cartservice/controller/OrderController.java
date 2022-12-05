@@ -28,4 +28,11 @@ public class OrderController {
         orderService.orderStatusPayed(username);
     }
 
+    @DeleteMapping("order/delete/{username}")
+    public void deleteOrder(@PathVariable String username){
+        orderService.deleteOrder(username);
+    }
+
+
+
 }

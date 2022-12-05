@@ -1,27 +1,40 @@
-<div
-     style="background-color: white; box-shadow: 0px 0px 5px 5px silver;  width: 400px;  margin:100px auto;">
-
-    <form ng-submit="tryToRegistration()">
-        <div style="font-family: 'Times New Roman'">
-            <p align="center" style="font-size: 30px; padding-top: 40px;"><b>Регистрация</b></p>
-            <p align="center" style="color: silver; align-content: center">Пожалуйста зарегистрируйтесь</p>
-            <div style="background-color: white; margin: 0px 60px auto; font-family: 'Times New Roman'">
-                <span style="font-size: 20px; padding-top: 15px; margin-top: 50px; "><b>Логин</b></span><br>
-                <input placeholder="Введите логин" ng-model="new_user.username" type="text"
-                       style=" border-radius: 5px; width: 270px; height: 40px;font-size: 20px"><br>
-                <span align="center" style="font-size: 20px; padding-top: 15px; margin-top: 50px; "><b>Пароль</b></span><br>
-                <input placeholder="Введите пароль" ng-model="new_user.password" type="password"
-                       style="border-radius: 5px; width: 270px; height: 40px;font-size: 20px"><br>
-                <span align="center" style="font-size: 20px; padding-top: 15px; margin-top: 50px; "><b>Email</b></span><br>
-                <input placeholder="Введите email" ng-model="new_user.email" type="text"
-                       style="border-radius: 5px; width: 270px; height: 40px;font-size: 20px"><br>
-                <button class="btn-test" id="navLoginSubmit"
-                        style="margin-bottom: 30px; margin-left: 30px; width: 200px; height: 40px;
-                           margin-top: 25px;"
-                        type="submit">Зарегистрироваться
-                </button>
-            </div>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="registration/registration.css">
+    <title></title>
+</head>
+<body>
+<div class="main-container">
+    <div class="reg-container">
+        <div class="reg-title">Регистрация</div>
+        <div class="ctnr">
+            <form ng-submit="tryToRegistration()">
+                <div class="mb-3">
+                    <div class="reg-label">Логин</div>
+                    <input type="text" class="reg-input" placeholder="  Введите логин" ng-model="new_user.username">
+                </div>
+                <div class="mb-3">
+                    <div class="reg-label">Пароль</div>
+                    <input class="reg-input" placeholder="  Введите пароль" ng-model="new_user.password" type="password">
+                </div>
+                <div class="mb-3">
+                    <div class="reg-label">Email</div>
+                    <input type="text" class="reg-input" placeholder="  Введите email" ng-model="new_user.email">
+                </div>
+                <div class="div-btn">
+                    <button class="reg-btn" id="navLoginSubmit" type="submit">Зарегистрироваться</button>
+                </div>
+            </form>
         </div>
-    </form>
+    </div>
 </div>
+</body>
+
+
+
+
+
 

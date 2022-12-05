@@ -1,0 +1,159 @@
+body, html {
+    width: 100%;
+    height: 100%;
+}
+
+.main-container {
+    background-color: #434243;
+    min-height: 100%;
+    display: flex;
+}
+
+.order-content {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #282728;
+    border-radius: 5px;
+    background-color: #302f30;
+    margin: 130px 5px 10px;
+    width: 50%;
+    max-height: 730px;
+    overflow-y: auto;
+}
+
+#order-window-scroll::-webkit-scrollbar {
+    width: 5px;
+    background-color: #302f30;
+    border-radius: 10px;
+    border-width: 3px;
+    border-color: #282728;
+}
+#order-window-scroll::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #626262;
+}
+
+.pay-content {
+    margin-top: 130px;
+    margin-right: 10px;
+    margin-left: 5px;
+    text-align: center;
+    background-color: #302f30;
+    width: 25%;
+    height: min-content;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #282728;
+    border-radius: 5px;
+}
+
+.history-content {
+    margin-top: 130px;
+    margin-right: 5px;
+    margin-left: 10px;
+    text-align: center;
+    background-color: #302f30;
+    width: 25%;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #282728;
+    border-radius: 5px;
+    height: 400px;
+}
+
+.order-label {
+    margin-top: 60px;
+    margin-bottom: 80px;
+    color: white;
+    font-size: 30px;
+    text-align: center;
+}
+
+.order-div {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 20%);
+}
+
+.order-item {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: silver;
+    font-size: 17px;
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 20%);
+}
+
+.itm {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.order-del {
+    text-align: start;
+    margin-right: 30px;
+    margin-left: 40px;
+    margin-bottom: 10px;
+    color: white;
+    font-size: 17px;
+}
+
+.pay-btn {
+    margin-left: 25%;
+    width: 100px;
+}
+
+.pay {
+    margin-top: 30px;
+    margin-bottom: 10px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.delete-btn {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    height: 35px;
+    width: auto;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #282728;
+    border-radius: 10px;
+    background-color: #434243;
+    color: silver;
+}
+.delete-btn:hover {
+    color: black;
+    background-color: #fc7474;
+}
+
+
+.delete-order {
+    display: block;
+    text-align: end;
+    margin-right: 50px;
+    margin-left: auto;
+    margin-top: 15px;
+}
+
+.order-empty {
+    margin-top: 130px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 800px;
+    width: 800px;
+    color: silver;
+}
+.order-empty-label {
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: auto;
+    margin-top: 40%;
+}
+

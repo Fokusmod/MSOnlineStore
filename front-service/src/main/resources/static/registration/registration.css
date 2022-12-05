@@ -6,9 +6,8 @@ body, html {
     background-color: #434243;
     min-height: 100%;
     display: flex;
-
 }
-.auth-form{
+.reg-container {
     margin-left: auto;
     margin-right: auto;
     margin-top: 130px;
@@ -18,41 +17,39 @@ body, html {
     height: 500px;
     width: 400px;
 }
-.auth-title{
+
+.reg-title {
     margin: 50px 10px 50px 10px;
     text-align: center;
     color: white;
     font-size: 20px;
     font-weight: bold;
 }
-
-.form-title{
+.reg-label {
     font-size: 20px;
     color: silver;
     margin-left: 10px;
     margin-bottom: 10px;
 }
-.form-control {
+
+.reg-input {
+    height: 37px;
+    width: 100%;
     background-color: #434243;
     color: white;
+    border-style: solid;
     border-radius: 5px;
+    border-width: 1px;
     border-color: #282728;
-
 }
-.form-control:focus {
+
+.reg-input:focus {
     background-color: #434243;
     color: silver;
 }
-.form-label {
-    font-size: 20px;
-    color: silver;
-    margin-left: 10px;
-}
 
-.auth-a {
-    color: cornflowerblue;
-}
-.auth-btn {
+.reg-btn {
+    text-align: center;
     margin-top: 30px;
     background-color: #434243;
     color: silver;
@@ -60,20 +57,21 @@ body, html {
     border-color: #302f30;
     border-width: 1px;
     border-radius: 5px;
-    width: 120px;
     height: 35px;
 }
-.auth-btn:hover {
+.reg-btn:hover {
     color: white;
 }
-.auth-btn:active{
+.reg-btn:active{
     background-color: #3b3a3b;
 }
-.auth-container {
-    margin-right: 20px;
-    margin-left: 20px;
+.ctnr {
+    display: block;
+    margin-left: 35px;
+    margin-right: 35px;
+    margin-bottom: 15px;
+
 }
-.form-center {
-    margin-top: 20px;
+.div-btn {
     text-align: center;
 }

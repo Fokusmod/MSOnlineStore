@@ -1,41 +1,59 @@
-<div ng-show="isEmpty">
-    <p></p>
-    <h3>Ваши товары</h3>
-    <table class="table">
-        <thead>
-        <tr>
-            <td>Товар</td>
-            <td>Цена</td>
-            <td>Колличество</td>
-            <td>Игото</td>
-        </tr>
-        </thead>
-        <tbody>
-        <tr ng-repeat="o in orderItems">
-            <td>{{o.title}}</td>
-            <td>{{o.price}}</td>
-            <td>{{o.count}}</td>
-            <td>{{o.sum}}</td>
-        </tr>
-        </tbody>
-    </table>
-
-
-
-    <h3>Ваш заказ</h3>
-
-    <span>Цена: {{orderPrice()}}</span>
-    <p></p>
-    <span>Адрес: {{address}}</span>
-    <span>Телефон: {{phoneNumber}}</span>
-    <p></p>
-    <span>Статус: <object id="color"> {{status}}</object></span>
-
-    <p></p>
-    <h3>Оплатить</h3>
-    <div id="paypal-buttons"></div>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="order/order.css">
+    <title></title>
+</head>
+<body>
+<div class="main-container">
+    <div class="history-content" ng-show="isEmpty">
+        <div class="order-label">История заказов</div>
+    </div>
+    <div class="order-content" ng-show="isEmpty" id="order-window-scroll">
+        <div class="order-label">Ваши товары</div>
+        <div class="order-div">
+            <div class="order-title"></div>
+            <div class="order-title">Товар</div>
+            <div class="order-title">Цена</div>
+            <div class="order-title">Колличество</div>
+            <div class="order-title">Игото</div>
+        </div>
+        <div class="order-item" ng-repeat="o in orderItems">
+            <div class="cart-image">
+                <img width="70" height="70"
+                     src="https://economic-definition.com/Preview_Figures/150/080/1099254284-kak_pravilo__to_chto_proizvodit_sya_posredstvom_trudovoy_deyatel_nosti_mozhet_byt__ispol_zovano_dlya_bartera.jpg">
+            </div>
+            <div class="itm">{{o.title}}</div>
+            <div class="itm">{{o.price}}</div>
+            <div class="itm">{{o.count}}</div>
+            <div class="itm">{{o.sum}}</div>
+        </div>
+        <div class="delete-order">
+            <button class="delete-btn" ng-click="deleteOrder()">Удалить заказ</button>
+        </div>
+        <div class="order-label"></div>
+    </div>
+    <div class="pay-content" ng-show="isEmpty">
+        <div class="pay-div">
+            <div class="order-label">Ваш заказ</div>
+            <div class="order-del">Цена: {{orderPrice()}}</div>
+            <div class="order-del">Адрес: {{address}}</div>
+            <div class="order-del">Телефон: {{phoneNumber}}</div>
+            <div class="order-del">Статус:
+                <object id="color"> {{status}}</object>
+            </div>
+            <div class="pay">Оплатить</div>
+            <div class="pay-btn" id="paypal-buttons"></div>
+        </div>
+    </div>
+    <div class="order-empty" ng-show="!isEmpty">
+        <div class="order-empty-label">Заказы отсутствуют</div>
+    </div>
 </div>
 
-<div style="margin-top: 40px" ng-show="!isEmpty">
-    <h1  align="center" style="color:silver;">Заказы отсутствуют</h1>
-</div>
+</body>
+
+
+

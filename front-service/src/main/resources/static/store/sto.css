@@ -92,6 +92,7 @@ body, html {
 }
 
 .cart-button {
+    font-family: "Times New Roman";
     border-color: #302f30;
     border-width: 1px;
     margin-left: 10px;
@@ -102,7 +103,7 @@ body, html {
     height: 45px;
     background-color: #434243;
     color: silver;
-    font-size: 17px;
+    font-size: 20px;
 
 }
 .cart-button:hover{
@@ -120,6 +121,7 @@ body, html {
 }
 
 .title-product {
+    font-family: "Times New Roman";
     font-size: 20px;
     width: 100%;
     text-align: center;
@@ -127,6 +129,7 @@ body, html {
     color: silver;
 }
 .price-title {
+    font-family: "Times New Roman";
     width: 100%;
     height: 40px;
     font-size: 20px;

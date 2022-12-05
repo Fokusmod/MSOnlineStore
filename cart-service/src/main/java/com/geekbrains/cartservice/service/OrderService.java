@@ -28,7 +28,7 @@ public class OrderService {
 
 
     public Order getOrder(String username) {
-       return orderRepository.findByUsername(username).orElseThrow(()->new ResourceNotFoundException("Order not fount"));
+        return orderRepository.findByUsername(username).orElseThrow(() -> new ResourceNotFoundException("Order not fount"));
     }
 
     @Transactional
@@ -46,7 +46,6 @@ public class OrderService {
         }
 
         Order order = orderRepository.findByUsername(orderDto.getUsername()).get();
-
         if (!order.getAddress().equals(orderDto.getAddress())) {
             order.setAddress(orderDto.getAddress());
         }
@@ -74,7 +73,7 @@ public class OrderService {
             }
         }
         order.setOrderItems(prepareItems);
-        orderRepository.save(order);
+        orderRepository.saveAndFlush(order);
     }
 
     public void orderStatusPayed(String username) {
@@ -82,6 +81,11 @@ public class OrderService {
         Status status = statusRepository.findById(1L).get();
         order.setStatus(status);
         orderRepository.save(order);
+    }
+
+    public void deleteOrder(String username) {
+        Order order = getOrder(username);
+        orderRepository.delete(order);
     }
 
 }

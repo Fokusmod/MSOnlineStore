@@ -1,15 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="report/web_socket_report.css">
+    <title></title>
+</head>
+<body>
+<div class="main-container">
+    <div class="stat-window" id="stat-window-scroll">
 
-<div id="main-content" class="container">
-    <div class="row">
-        <div class="col-md-6">
-            <form class="form-inline">
-                <div class="form-group">
-                    <label> Product information: </label>
-                    <button ng-click="sendMessage()" class="btn btn-primary" >Download</button>
-                </div>
-            </form>
+        <div class="item" style="margin-top: 1px;" ng-click="viewDivProduct()">
+            <div class="stat-download">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                     class="bi bi-box-fill" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                          d="M15.528 2.973a.75.75 0 0 1 .472.696v8.662a.75.75 0 0 1-.472.696l-7.25 2.9a.75.75 0 0 1-.557 0l-7.25-2.9A.75.75 0 0 1 0 12.331V3.669a.75.75 0 0 1 .471-.696L7.443.184l.004-.001.274-.11a.75.75 0 0 1 .558 0l.274.11.004.001 6.971 2.789Zm-1.374.527L8 5.962 1.846 3.5 1 3.839v.4l6.5 2.6v7.922l.5.2.5-.2V6.84l6.5-2.6v-.4l-.846-.339Z"/>
+                </svg>
+            </div>
+            <div class="stat-title">
+                <label class="report-label">Продуктовая Информация</label>
+            </div>
+            <div class="stat-download">
+                <button ng-click="sendMessage()" class="report-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                         class="bi bi-arrow-down" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                              d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class="item">
+            <div class="stat-download">
+            </div>
+            <div class="stat-title">
+                <label class="report-label">Mock tag</label>
+            </div>
+            <div class="stat-download">
+            </div>
+        </div>
+        <div class="item">
+            <div class="stat-download">
+            </div>
+            <div class="stat-title">
+                <label class="report-label">Mock tag</label>
+            </div>
+            <div class="stat-download">
+            </div>
+        </div>
+        <div class="item">
+            <div class="stat-download">
+            </div>
+            <div class="stat-title">
+                <label class="report-label">Mock tag</label>
+            </div>
+            <div class="stat-download">
+            </div>
+        </div>
+        <div class="item">
+            <div class="stat-download">
+            </div>
+            <div class="stat-title">
+                <label class="report-label">Mock tag</label>
+            </div>
+            <div class="stat-download">
+            </div>
+        </div>
+        <div class="item">
+            <div class="stat-download">
+            </div>
+            <div class="stat-title">
+                <label class="report-label">Mock tag</label>
+            </div>
+            <div class="stat-download">
+            </div>
+        </div>
+        <div class="item">
+            <div class="stat-download">
+            </div>
+            <div class="stat-title">
+                <label class="report-label">Mock tag</label>
+            </div>
+            <div class="stat-download">
+            </div>
+        </div>
+        <div class="item">
+            <div class="stat-download">
+            </div>
+            <div class="stat-title">
+                <label class="report-label">Mock tag</label>
+            </div>
+            <div class="stat-download">
+            </div>
+        </div>
+        <div class="item">
+            <div class="stat-download">
+            </div>
+            <div class="stat-title">
+                <label class="report-label">Mock tag</label>
+            </div>
+            <div class="stat-download">
+            </div>
+        </div>
+        <div class="item">
+            <div class="stat-download">
+            </div>
+            <div class="stat-title">
+                <label class="report-label">Mock tag</label>
+            </div>
+            <div class="stat-download">
+            </div>
+        </div>
+        <div class="item">
+            <div class="stat-download">
+            </div>
+            <div class="stat-title">
+                <label class="report-label">Mock tag</label>
+            </div>
+            <div class="stat-download">
+            </div>
         </div>
     </div>
+
+
+    <div class="content-div" id="mainDiv">
+        <div class="content" id="productContent">
+            <div class="contentLabel">Продуктовая информация</div>
+            <p></p>
+            <span class="productContentSpan">
+            <p>Здесь собрана статистика товаров, реализованных в данном маркет плейсе.</p>
+                  <p>Статистика включает в себя:</p>
+                <p style="margin-left: 50px">-ID товара;</p>
+                <p style="margin-left: 50px">-Название;</p>
+                <p style="margin-left: 50px">-Категория;</p>
+                <p style="margin-left: 50px">-Цена;</p>
+                <p style="margin-left: 50px">-Наличие;</p>
+                <p>Статистику можно скачать в формате xlsx.</p>
+        </span>
+            <p>
+                <button class="productContentBtn" ng-click="sendMessage()">Скачать</button>
+            </p>
+        </div>
+
+        <div class="content" id="statsContent">
+            <div class="contentLabel">Статистика работы сервисов MSOnlineStore</div>
+            <div class="contentStats">
+                <div class="stats-container" ng-repeat="s in stats">
+                    <div class="stats-title">{{s.className}}</div>
+                    <div class="stats-metric">{{s.method}}: {{s.time }}мс</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content" id="callContent">
+            <div class="contentLabel">Колл-Сервис MSOnlineStore</div>
+            <div class="content-call">
+                <div class="call-container" ng-repeat="c in cont">
+                    <div class="call-title">Логин: {{c.username}}</div>
+                    <div class="call-title">Email: {{c.email}}</div>
+                    <div class="cart-container">
+                        <div class="ttl">Название</div>
+                        <div class="ttl">Колличество</div>
+                        <div class="ttl">Цена</div>
+                        <div class="ttl">Сумма</div>
+                    </div>
+                    <div ng-repeat="i in c.cart" class="cart-container">
+                        <div>{{i.title}}</div>
+                        <div>{{i.count}}</div>
+                        <div>{{i.price}}</div>
+                        <div>{{i.sum}}</div>
+                    </div>
+                    <div class="btn-content">
+                        <button class="call-btn" style="margin-right: auto">Позвонить</button>
+                        <button class="call-btn" style="margin-right: auto">Отправить письмо</button>
+                        <button class="call-btn" style="margin-left: auto">Комната ожидания</button>
+                        <button class="call-btn" style="margin-left: auto">Завершить</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="stat-service">
+        <div class="item" style="margin-top: 1px;" ng-click="viewDivStats()">
+            <div class="service-title">
+                <label class="report-label">Сервис Статистики</label>
+            </div>
+            <div class="stat-download">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                     class="bi bi-gear-fill" viewBox="0 0 16 16">
+                    <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"/>
+                </svg>
+            </div>
+
+        </div>
+        <div class="item">
+            <div class="service-title" ng-click="viewDivCall()">
+                <label class="report-label">Колл-Сервис</label>
+            </div>
+            <div class="stat-download">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-headset"
+                     viewBox="0 0 16 16">
+                    <path d="M8 1a5 5 0 0 0-5 5v1h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a6 6 0 1 1 12 0v6a2.5 2.5 0 0 1-2.5 2.5H9.366a1 1 0 0 1-.866.5h-1a1 1 0 1 1 0-2h1a1 1 0 0 1 .866.5H11.5A1.5 1.5 0 0 0 13 12h-1a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h1V6a5 5 0 0 0-5-5z"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+
 </div>
+</div>
+
+</body>
+
+
+
 
 

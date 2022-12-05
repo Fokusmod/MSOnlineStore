@@ -6,32 +6,40 @@ body, html {
     background-color: #434243;
     min-height: 100%;
     display: flex;
-
 }
-.auth-form{
+.form-addProduct {
     margin-left: auto;
     margin-right: auto;
     margin-top: 130px;
     background-color: #302f30;
     border-radius: 5px;
     border-color: #333233;
-    height: 500px;
+    height: 600px;
     width: 400px;
 }
-.auth-title{
+
+.form-name {
+    font-family: "Times New Roman";
+    font-size: 20px;
+    color: white;
+    font-weight: bolder;
     margin: 50px 10px 50px 10px;
     text-align: center;
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
 }
-
-.form-title{
+.form-label {
+    font-family: "Times New Roman";
     font-size: 20px;
     color: silver;
     margin-left: 10px;
-    margin-bottom: 10px;
 }
+
+.form-select {
+    background-color: #434243;
+    color: white;
+    border-radius: 5px;
+    border-color: #282728;
+}
+
 .form-control {
     background-color: #434243;
     color: white;
@@ -39,20 +47,18 @@ body, html {
     border-color: #282728;
 
 }
+
+.form-container {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
 .form-control:focus {
     background-color: #434243;
     color: silver;
 }
-.form-label {
-    font-size: 20px;
-    color: silver;
-    margin-left: 10px;
-}
-
-.auth-a {
-    color: cornflowerblue;
-}
-.auth-btn {
+.form-btn {
+    font-family: "Times New Roman";
     margin-top: 30px;
     background-color: #434243;
     color: silver;
@@ -63,16 +69,13 @@ body, html {
     width: 120px;
     height: 35px;
 }
-.auth-btn:hover {
+.form-btn:hover {
     color: white;
 }
-.auth-btn:active{
+.form-btn:active{
     background-color: #3b3a3b;
 }
-.auth-container {
-    margin-right: 20px;
-    margin-left: 20px;
-}
+
 .form-center {
     margin-top: 20px;
     text-align: center;
