@@ -6,5 +6,72 @@ body, html {
     background-color: #434243;
     min-height: 100%;
     display: flex;
+}
+.reg-container {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 130px;
+    background-color: #302f30;
+    border-radius: 5px;
+    border-color: #333233;
+    height: 500px;
+    width: 400px;
+}
 
+.reg-title {
+    margin: 50px 10px 50px 10px;
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+.reg-label {
+    font-size: 20px;
+    color: silver;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+.reg-input {
+    height: 37px;
+    width: 100%;
+    background-color: #434243;
+    color: white;
+    border-style: solid;
+    border-radius: 5px;
+    border-width: 1px;
+    border-color: #282728;
+}
+
+.reg-input:focus {
+    background-color: #434243;
+    color: silver;
+}
+
+.reg-btn {
+    text-align: center;
+    margin-top: 30px;
+    background-color: #434243;
+    color: silver;
+    font-size: 17px;
+    border-color: #302f30;
+    border-width: 1px;
+    border-radius: 5px;
+    height: 35px;
+}
+.reg-btn:hover {
+    color: white;
+}
+.reg-btn:active{
+    background-color: #3b3a3b;
+}
+.ctnr {
+    display: block;
+    margin-left: 35px;
+    margin-right: 35px;
+    margin-bottom: 15px;
+
+}
+.div-btn {
+    text-align: center;
 }

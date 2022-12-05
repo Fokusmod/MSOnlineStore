@@ -29,6 +29,10 @@ public class UserService implements UserDetailsService {
        return userRepository.findByUsername(username).get();
     }
 
+    public User getUserById(Long id) {
+        return userRepository.findById(id).orElseThrow(()-> new RuntimeException("User not found"));
+    }
+
     @Override
     @Transactional
     @ExecutionTime

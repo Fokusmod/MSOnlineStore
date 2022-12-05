@@ -40,6 +40,14 @@ spring:
             - StripPrefix=1
             - PrefixPath=/market-cart
             - JwtAuthFilter
+        - id: call-service
+          uri: http://localhost:8184
+          predicates:
+            - Path=/call/**
+          filters:
+            - StripPrefix=1
+            - PrefixPath=/market-call
+            - JwtAuthFilter
 
 
 jwt:

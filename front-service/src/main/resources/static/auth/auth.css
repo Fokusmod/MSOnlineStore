@@ -24,11 +24,9 @@ body, html {
     color: white;
     font-size: 20px;
     font-weight: bold;
-    font-family: "Times New Roman";
 }
 
 .form-title{
-    font-family: "Times New Roman";
     font-size: 20px;
     color: silver;
     margin-left: 10px;
@@ -46,7 +44,6 @@ body, html {
     color: silver;
 }
 .form-label {
-    font-family: "Times New Roman";
     font-size: 20px;
     color: silver;
     margin-left: 10px;
@@ -56,7 +53,6 @@ body, html {
     color: cornflowerblue;
 }
 .auth-btn {
-    font-family: "Times New Roman";
     margin-top: 30px;
     background-color: #434243;
     color: silver;

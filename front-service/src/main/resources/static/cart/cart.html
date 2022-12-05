@@ -3,68 +3,61 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="auth/auth.css">
+    <link rel="stylesheet" type="text/css" href="cart/cart.css">
     <title></title>
 </head>
-<body>
-<div class="main-container">
+<body >
+<div class="main-container" >
+    <div class="content-cart" ng-show="!isEmpty" id="cart-window-scroll">
+        <div class="cart-header">
+            <div class="cart-title"></div>
+            <div class="cart-title">Название</div>
+            <div class="cart-title">Колличество</div>
+            <div class="cart-title">Сумма</div>
+            <div class="cart-title"></div>
+        </div>
+        <div class="cart-header"></div>
+        <div class="item" ng-repeat="p in cartProducts">
+            <div class="cart-image">
+                <img width = "70" height = "70" src="https://economic-definition.com/Preview_Figures/150/080/1099254284-kak_pravilo__to_chto_proizvodit_sya_posredstvom_trudovoy_deyatel_nosti_mozhet_byt__ispol_zovano_dlya_bartera.jpg">
+            </div>
+            <div class="title-in-cart">{{p.title}}</div>
+            <div class="title-in-cart">{{p.count}}</div>
+            <div class="title-in-cart">{{p.sum}}</div>
+            <div class="title-in-cart">
+                <button ng-click="deleteProductFromCart(p.id, p.count)" class="cart-btn">Удалить</button>
+            </div>
+        </div>
+        <div class="cart-header"></div>
+    </div>
+    <div class="form-order" ng-show="!isEmpty">
+        <form novalidate ng-submit="createOrder()">
+            <div>
+                <div class="order-point">
+                    <div class="data">Стоимость заказа: {{cartPrice()}} P</div>
+                </div>
+                <div class="order-point"></div>
+                <div class="preorder">
+                    <div class="order-point-del">Адрес доставки</div>
+                    <div>
+                        <input placeholder="Адрес" ng-model="cartOrder.address" class="input-del" type="text"
+                               name="address"><br>
+                    </div>
+                    <div class="order-point-del">Телефон</div>
+                    <div >
+                        <input placeholder="Номер" ng-model="cartOrder.phoneNumber" class="input-del" type="text" name="phone">
+                    </div>
+                </div>
+            </div>
+            <div>
+                <button type="submit" ng-submit="createOrder()" class="send-button">Оформить заказ</button>
+            </div>
+        </form>
+    </div>
+    <div class="cart-empty" ng-show="isEmpty">
+        <div class="title-empty">Корзина пуста</div>
+    </div>
 
 </div>
 
 </body>
-
-
-
-<!--    <meta charset="utf-8">-->
-<!--    <meta name="viewport" content="width=device-width, initial-scale=1">-->
-<!--    <link rel="stylesheet" type="text/css" href="cart/cart.css">-->
-<!--    <title></title>-->
-
-
-<!--<body ng-show="!isEmpty">-->
-<!--<div ng-repeat="p in cartProducts" class="flex-container">-->
-<!--    <div class="cart-container">-->
-<!--        <div class="box-cart">-->
-<!--            <img class="cart-image"-->
-<!--                 src="https://economic-definition.com/Preview_Figures/150/080/1099254284-kak_pravilo__to_chto_proizvodit_sya_posredstvom_trudovoy_deyatel_nosti_mozhet_byt__ispol_zovano_dlya_bartera.jpg">-->
-<!--        </div>-->
-<!--        <div class="cart-title">{{p.title}}</div>-->
-<!--        <div class="cart-title">{{p.count}}</div>-->
-<!--        <div class="cart-title">{{p.sum}}</div>-->
-<!--        <div class="cart-title">-->
-<!--            <button ng-click="deleteProductFromCart(p.id, p.count)" class="cart">Убрать</button>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
-<!--<form ng-show="!isEmpty" novalidate ng-submit="createOrder()">-->
-
-<!--    <div class="preorder-container">-->
-<!--        <div class="preorder">-->
-<!--            <div class="prepare-title">Стоимость заказа:</div>-->
-<!--            <div class="data">{{cartPrice()}} P</div>-->
-<!--        </div>-->
-<!--        <div class="preorder">-->
-<!--            <div class="prepare-title">Доставка</div>-->
-<!--            <div class="data">Адрес доставки</div>-->
-<!--            <div class="prepare-input">-->
-<!--                <input placeholder="Адрес" ng-model="cartOrder.address" class="input-dev" type="text"-->
-<!--                       name="address"><br>-->
-<!--            </div>-->
-<!--            <div class="data">Телефон</div>-->
-<!--            <div class="prepare-input">-->
-<!--                <input placeholder="Номер" ng-model="cartOrder.phoneNumber" class="input-dev" type="text" name="phone">-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--    <div class="send-button">-->
-<!--        <button type="submit" ng-submit="createOrder()" class="send">Оформить заказ</button>-->
-<!--    </div>-->
-<!--</form>-->
-
-
-<!--<div style="margin-top: 40px" ng-show="isEmpty">-->
-<!--    <h1 align="center" style="color:silver;">Корзина пуста</h1>-->
-<!--</div>-->
-
-<!--</body>-->
-

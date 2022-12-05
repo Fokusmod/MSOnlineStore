@@ -42,4 +42,10 @@ public class AuthController {
         User user = userService.getUser(username);
         return new UserDto(user.getId(),user.getUsername());
     }
+
+    @GetMapping("/{id}")
+    public UserDto getUserById(@PathVariable Long id) {
+        User user = userService.getUserById(id);
+        return new UserDto(user.getId(), user.getUsername(), user.getEmail());
+    }
 }

@@ -2,42 +2,68 @@ body, html {
     width: 100%;
     height: 100%;
 }
+
 .main-container {
     background-color: #434243;
     min-height: 100%;
     display: flex;
 }
-.stat-window{
+
+.stat-window {
     margin-top: 130px;
     margin-left: 5px;
     margin-right: auto;
     height: 600px;
     width: 400px;
-    background-color: #302f30;
     border-radius: 5px;
     border-style: solid;
     border-width: 1px;
     border-color: #282728;
     overflow-y: auto;
+    background-color: #434243;
 }
 
-.stat-service{
+.content-div {
+    background-color: #302f30;
+    margin-top: 130px;
+    margin-bottom: 10px;
+    width: 900px;
+    height: min-content;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #282728;
+    border-radius: 5px;
+}
+
+.stat-service {
     margin-top: 130px;
     margin-left: auto;
     margin-right: 5px;
-    height: 600px;
+    height: 125px;
     width: 400px;
-    background-color: #302f30;
+    background-color: #434243;
     border-radius: 5px;
     border-style: solid;
     border-width: 1px;
     border-color: #282728;
 }
 
-.download-stat {
+.item {
+    margin-bottom: 1px;
     display: flex;
     height: 60px;
     width: auto;
+    background-color: #302f30;
+}
+
+.item:hover {
+    background-color: #3b3a3b;
+    cursor: pointer;
+}
+
+.item:hover label {
+    color: white;
+    cursor: pointer;
 }
 
 #stat-window-scroll::-webkit-scrollbar {
@@ -47,16 +73,12 @@ body, html {
     border-width: 3px;
     border-color: #282728;
 }
+
 #stat-window-scroll::-webkit-scrollbar-thumb {
     border-radius: 10px;
     background-color: #626262;
 }
-.hr-style {
-    margin-top: 5px;
-    margin-bottom: 5px;
-    height: 3px;
-    background-color: silver;
-}
+
 .report-btn {
     height: 45px;
     width: 45px;
@@ -66,12 +88,21 @@ body, html {
     border-radius: 10px;
     background-color: #434243;
 }
+
+.report-btn:hover {
+    background-color: lawngreen;
+    color: black;
+}
+
+.report-btn:hover svg {
+    color: black;
+}
+
 .report-label {
 
 }
 
 .stat-title {
-    font-family: "Times New Roman";
     font-size: 20px;
     font-weight: bold;
     color: silver;
@@ -81,14 +112,138 @@ body, html {
     text-align: center;
 
 }
+
 .stat-download {
-    font-family: "Times New Roman";
     font-size: 20px;
     margin-top: auto;
     margin-bottom: auto;
     text-align: center;
     width: 20%;
 }
+
 svg {
     color: silver;
 }
+
+.service-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: silver;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 80%;
+    text-align: center;
+}
+
+.content {
+    margin: 10px 10px 10px 10px;
+}
+
+#productContent {
+    display: none;
+    color: white;
+}
+
+#mainDiv {
+    display: none;
+}
+
+.productContentBtn {
+    height: 30px;
+    width: 100px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #282728;
+    border-radius: 10px;
+    background-color: #434243;
+    color: silver;
+}
+
+.productContentBtn:hover {
+    background-color: lawngreen;
+    color: black;
+}
+
+.contentLabel {
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 20px;
+    font-size: 25px;
+    font-weight: bold;
+    color: white;
+}
+
+.productContentSpan {
+
+}
+
+p {
+    margin-left: 25px;
+}
+
+.stats-container {
+    margin-top: 35px;
+    margin-bottom: 35px;
+    margin-left: 80px;
+
+}
+
+.stats-title {
+    font-size: 20px;
+    color: white;
+}
+
+.stats-metric {
+    font-size: 15px;
+    color: white;
+}
+
+.contentStats {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 50%);
+}
+
+.content-call {
+    margin: 10px;
+}
+
+.call-container {
+    margin: 35px;
+}
+
+.call-title {
+
+    font-size: 20px;
+    color: white;
+}
+.cart-container {
+    background-color: #bad0fa;
+    font-size: 17px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 25%);
+}
+.call-btn {
+    margin-top: 10px;
+    height: 30px;
+    width: auto;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #282728;
+    border-radius: 5px;
+    background-color: #434243;
+    color: silver;
+}
+
+.call-btn:hover {
+    background-color: lawngreen;
+    color: black;
+}
+.ttl {
+    font-weight: bold;
+}
+.btn-content {
+    display: block;
+}
+
+
+
